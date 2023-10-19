@@ -1,18 +1,18 @@
-package com.jarno.cr8ive.domain;
+package com.jarno.cr8ive.business.model.request;
 
-import lombok.*;
-import org.apache.catalina.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
-
-@Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class Post {
-    private long id;
+@Getter
+public class CreatePostRequestModel {
     private List<MultipartFile> content;
     private String description;
     private Date creationDate;
@@ -21,9 +21,4 @@ public class Post {
     private int commandId;
     private List<Integer> hashtagIds;
     private long userId;
-
-
-    public boolean contentIsValid(){
-        return content != null;
-    }
 }

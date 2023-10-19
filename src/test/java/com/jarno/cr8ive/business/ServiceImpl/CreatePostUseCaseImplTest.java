@@ -2,8 +2,8 @@ package com.jarno.cr8ive.business.ServiceImpl;
 
 import com.jarno.cr8ive.business.interfaces.PostRepository;
 import com.jarno.cr8ive.business.interfaces.PostServiceInterface;
-import com.jarno.cr8ive.controller.request.post.CreatePostRequest;
-import com.jarno.cr8ive.controller.response.post.CreatePostResponse;
+import com.jarno.cr8ive.business.request.post.CreatePostRequest;
+import com.jarno.cr8ive.business.response.post.CreatePostResponse;
 import org.junit.jupiter.api.Test;
 import com.jarno.cr8ive.domain.Post;
 import org.springframework.mock.web.MockMultipartFile;
@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -16,7 +16,7 @@ class AuthenticationTest {
     @Test
     public void authenticate_shouldReturnASuccessResponseWhenUserInformationIsCorrect() throws Exception {
         // Arrange
-        UserRepository userRepo = mock(UserRepository.class);
+        JpaUserRepository userRepo = mock(JpaUserRepository.class);
         Authentication authentication = new Authentication(userRepo);
         String email = "testuser@example.com";
         String password = "testpassword"; // This should be hashed and stored in your repository
