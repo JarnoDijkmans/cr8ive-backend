@@ -1,14 +1,15 @@
-package com.jarno.cr8ive.business.model.response;
+package com.jarno.cr8ive.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class CreatePostResponseModel {
+public class Hashtags {
     private long id;
+    private String name;
 }

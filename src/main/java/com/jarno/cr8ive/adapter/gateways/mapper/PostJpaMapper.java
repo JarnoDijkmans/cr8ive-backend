@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Post")
@@ -16,19 +18,19 @@ public class PostJpaMapper {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @OneToMany
-    @JoinTable(name = "Post_Content",
-                joinColumns = @JoinColumn(name= "post_id"))
-    private List<ContentJpaMapper> content;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ContentJpaMapper> postContents;
     private String description;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
     private long likes;
     private long shareCount;
-    private int commandId;
-    @ManyToMany
-    @JoinTable(name = "Post_Hashtags",
-            joinColumns = @JoinColumn(name = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "hashtag_id"))
-    private List<HashtagJpaMapper> hashtags;
-    private long user;
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "post_hashtags",
+            joinColumns = { @JoinColumn(name = "post_id") },
+            inverseJoinColumns = { @JoinColumn(name = "hashtag_id") }
+    )
+    private Set<HashtagJpaMapper> hashtags = new HashSet<>();
+    private long userId;
 }

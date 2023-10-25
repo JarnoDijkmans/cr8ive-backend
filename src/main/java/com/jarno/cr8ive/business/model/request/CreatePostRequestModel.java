@@ -15,10 +15,6 @@ import java.util.List;
 public class CreatePostRequestModel {
     private List<MultipartFile> content;
     private String description;
-    private Date creationDate;
-    private long likes;
-    private long shareCount;
-    private int commandId;
     private List<Integer> hashtagIds;
     private long userId;
 }

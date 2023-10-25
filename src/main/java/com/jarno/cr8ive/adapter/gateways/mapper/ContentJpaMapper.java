@@ -7,10 +7,14 @@ import lombok.Setter;
 
 @Entity
 @Data
-@Table(name = "Content")
+@Table(name = "post_content")
 public class ContentJpaMapper {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "file_url")
     private String fileUrl;
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private PostJpaMapper post;
 }
