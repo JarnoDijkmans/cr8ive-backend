@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping
-    public CreateUserResponseModel create (@RequestBody CreateUserRequestModel requestModel) throws UserCustomException {;
+    public CreateUserResponseModel create (@RequestBody CreateUserRequestModel requestModel) throws UserCustomException {
         return this.inputBoundary.create(requestModel);
     }
 }

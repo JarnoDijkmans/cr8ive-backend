@@ -3,6 +3,7 @@ package com.jarno.cr8ive.adapter.converter;
 import com.jarno.cr8ive.adapter.gateways.mapper.ContentJpaMapper;
 import com.jarno.cr8ive.adapter.gateways.mapper.HashtagJpaMapper;
 import com.jarno.cr8ive.adapter.gateways.mapper.PostJpaMapper;
+import com.jarno.cr8ive.domain.Content;
 import com.jarno.cr8ive.domain.Post;
 
 import java.util.Collections;
@@ -11,6 +12,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class GetPostByUserIdConverter {
+
+    private GetPostByUserIdConverter(){
+
+    }
     public static List<Post> toPosts(List<PostJpaMapper> jpaMappers) {
         if (jpaMappers == null) {
             return Collections.emptyList();
@@ -30,13 +35,16 @@ public class GetPostByUserIdConverter {
                 .collect(Collectors.toList());
     }
 
-    private static List<String> mapContentJpaMappers(List<ContentJpaMapper> contentJpaMappers) {
+    private static List<Content> mapContentJpaMappers(List<ContentJpaMapper> contentJpaMappers) {
         if (contentJpaMappers == null) {
             return Collections.emptyList();
         }
 
         return contentJpaMappers.stream()
-                .map(ContentJpaMapper::getFileUrl)
+                .map(contentJpaMapper -> Content.builder()
+                        .url(contentJpaMapper.getFileUrl())
+                        .type(contentJpaMapper.getExtension())
+                        .build())
                 .collect(Collectors.toList());
     }
 

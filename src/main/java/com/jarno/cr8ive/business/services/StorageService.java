@@ -1,5 +1,7 @@
 package com.jarno.cr8ive.business.services;
 
+import com.jarno.cr8ive.adapter.config.FileStorageProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -7,11 +9,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 @Service
 public class StorageService {
 
 
-    private final Path rootLocation = Paths.get("src/main/resources/static/uploads");
+    private final FileStorageProperties fileStorageProperties;
+
+
+    @Autowired
+    public StorageService(FileStorageProperties fileStorageProperties){
+        this.fileStorageProperties = fileStorageProperties;
+    }
 
     public void store(MultipartFile file, Long postId, String fileName) {
         try {
@@ -19,7 +28,8 @@ public class StorageService {
                 throw new RuntimeException("Failed to store empty file " + file.getOriginalFilename());
             }
 
-            Path postFolder = this.rootLocation.resolve("PostNumber_" + postId);
+            String baseDir = fileStorageProperties.getUploadDir();
+            Path postFolder = Paths.get(baseDir, "PostNumber_" + postId);
 
             if (!Files.exists(postFolder)) {
                 Files.createDirectories(postFolder);

@@ -11,16 +11,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 @AllArgsConstructor
 public class UserCreationMySqlGateway implements IUserRegisterGateway {
-    private IUserRepository _repository;
+    private IUserRepository repository;
 
 
     @Override
     public long save (User user){
         UserJpaMapper userJpaMapper = CreateUserConverter.toUserJpaMapper(user);
-        this._repository.save(userJpaMapper);
+        this.repository.save(userJpaMapper);
         return userJpaMapper.getId();
     }
 
     @Override
-    public boolean existsById(String id) {return _repository.existsById(id);}
+    public boolean existsById(String id) {return repository.existsById(id);}
 }

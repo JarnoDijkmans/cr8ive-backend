@@ -13,6 +13,6 @@ import java.util.List;
 @Getter
 public class Comments {
     private int id;
-    private List<String> comments;
+    private List<String> comment;
     private User user;
 }

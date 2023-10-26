@@ -1,6 +1,8 @@
 package com.jarno.cr8ive.adapter.controller.register;
 
 
+import com.jarno.cr8ive.adapter.config.FileStorageProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -15,9 +17,18 @@ import java.nio.file.Paths;
 @RequestMapping("/api/files")
 @CrossOrigin(origins = "http://localhost:5173")
 public class FileController {
+
+    private final FileStorageProperties fileStorageProperties;
+
+
+    @Autowired
+    public FileController(FileStorageProperties fileStorageProperties){
+        this.fileStorageProperties = fileStorageProperties;
+    }
+
     @GetMapping("/{postId}/{fileName}")
     public ResponseEntity<Resource> serveFile(@PathVariable long postId, @PathVariable String fileName) {
-        String baseDir = "src/main/resources/static/uploads";
+        String baseDir = fileStorageProperties.getUploadDir();
 
         Path filePath = Paths.get(baseDir, "PostNumber_" + postId, fileName);
         Resource resource = new FileSystemResource(filePath);

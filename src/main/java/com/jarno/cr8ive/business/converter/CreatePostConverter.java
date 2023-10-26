@@ -1,7 +1,7 @@
 package com.jarno.cr8ive.business.converter;
 
-import com.jarno.cr8ive.adapter.gateways.mapper.ContentJpaMapper;
 import com.jarno.cr8ive.business.model.request.CreatePostRequestModel;
+import com.jarno.cr8ive.domain.Content;
 import com.jarno.cr8ive.domain.Post;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -10,12 +10,15 @@ import java.util.Date;
 import java.util.List;
 
 public class CreatePostConverter {
-    public static Post toPost (CreatePostRequestModel requestModel){
+    public static Post toPost(CreatePostRequestModel requestModel) {
+        List<Content> files = new ArrayList<>();
 
-        List<String> files = new ArrayList<>();
         if (requestModel.getContent() != null) {
             for (MultipartFile file : requestModel.getContent()) {
-                files.add(file.getOriginalFilename());
+                files.add(Content.builder()
+                        .url(file.getOriginalFilename())
+                        .type(file.getContentType())
+                        .build());
             }
         }
 

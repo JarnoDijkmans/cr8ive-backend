@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 public class Post {
     private long id;
-    private List<String> content;
+    private List<Content> content;
     private String description;
     private Date creationDate;
     private long likes;

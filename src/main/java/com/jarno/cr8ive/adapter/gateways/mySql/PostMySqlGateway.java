@@ -3,7 +3,6 @@ package com.jarno.cr8ive.adapter.gateways.mySql;
 import com.jarno.cr8ive.adapter.converter.CreatePostConverter;
 import com.jarno.cr8ive.adapter.converter.GetPostByUserIdConverter;
 import com.jarno.cr8ive.adapter.converter.HashtagConverter;
-import com.jarno.cr8ive.adapter.gateways.mapper.ContentJpaMapper;
 import com.jarno.cr8ive.adapter.gateways.mapper.HashtagJpaMapper;
 import com.jarno.cr8ive.adapter.gateways.mapper.PostJpaMapper;
 import com.jarno.cr8ive.adapter.repositories.IHashtagRepository;
@@ -23,18 +22,18 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Repository
 public class PostMySqlGateway implements IPostRegisterGateway {
-    private IPostRepository _repository;
-    private IHashtagRepository _hashtagsRepository;
+    private IPostRepository repository;
+    private IHashtagRepository hashtagsRepository;
     @Autowired
     public PostMySqlGateway(IPostRepository repository, IHashtagRepository hashtagRepository) {
-        this._repository = repository;
-        this._hashtagsRepository = hashtagRepository;
+        this.repository = repository;
+        this.hashtagsRepository = hashtagRepository;
     }
     @Transactional
     public long save(Post post) {
         Set<HashtagJpaMapper> hashtagJpaMappers = post.getHashtagIds()
                 .stream()
-                .map(id -> _hashtagsRepository.findById(id))
+                .map(id -> hashtagsRepository.findById(id))
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(Collectors.toSet());
@@ -42,17 +41,17 @@ public class PostMySqlGateway implements IPostRegisterGateway {
         PostJpaMapper postJpaMapper = CreatePostConverter.toPostJpaMapper(post, hashtagJpaMappers);
         postJpaMapper.getPostContents().forEach(content -> content.setPost(postJpaMapper));
 
-        return _repository.save(postJpaMapper).getId();
+        return repository.save(postJpaMapper).getId();
     }
 
     @Transactional
     public List<Post> findByUserId(long userId) {
-        List<PostJpaMapper> postsJpa = _repository.findByUserId(userId);
+        List<PostJpaMapper> postsJpa = repository.findByUserId(userId);
         return GetPostByUserIdConverter.toPosts(postsJpa);
     }
     public List<Hashtags> findHashtagsById(List<Integer> hashtagIds) {
         return hashtagIds.stream()
-                .map(id -> _hashtagsRepository.findById(id))
+                .map(id -> hashtagsRepository.findById(id))
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .map(HashtagConverter::toHashtag)
@@ -61,6 +60,6 @@ public class PostMySqlGateway implements IPostRegisterGateway {
     }
 
     @Override
-    public boolean existsById(String id) {return _repository.existsById(id);}
+    public boolean existsById(String id) {return repository.existsById(id);}
 
 }

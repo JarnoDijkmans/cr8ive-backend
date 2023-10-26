@@ -1,5 +1,6 @@
 package com.jarno.cr8ive.business.model.response;
 
+import com.jarno.cr8ive.domain.Content;
 import com.jarno.cr8ive.domain.Hashtags;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class GetUserPostsResponseModel {
     private long id;
-    private List<String> content;
+    private List<Content> content;
     private String description;
     private Date creationDate;
     private long likes;
