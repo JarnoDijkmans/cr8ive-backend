@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="Clean architecture, Database connected, Post retrieval(Not finished), Post create">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/config/FileStorageProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/Content.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/converter/CreatePostConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/converter/CreatePostConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/converter/GetPostByUserIdConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/converter/GetPostByUserIdConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mapper/ContentJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mapper/ContentJpaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mySql/PostMySqlGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mySql/PostMySqlGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mySql/UserCreationMySqlGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mySql/UserCreationMySqlGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/presenter/UserPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/presenter/UserPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/converter/CreatePostConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/converter/CreatePostConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/GetUserPostsResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/GetUserPostsResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/StorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/Comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/Comments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/uploads/PostNumber_1/C1 System.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/uploads/PostNumber_1/C3-Components.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/uploads/PostNumber_2/C1 System.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/uploads/PostNumber_2/Untitled Diagram.drawio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/uploads/PostNumber_3/C3-Components.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/uploads/PostNumber_3/C4 Model System Context Diagram for Internet Banking System.png" beforeDir="false" />
-    </list>
+    <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="Made unitTests, Ready for demo" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +66,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
@@ -289,7 +264,7 @@
       <workItem from="1698233278989" duration="64000" />
       <workItem from="1698233358273" duration="5002000" />
       <workItem from="1698247124338" duration="2177000" />
-      <workItem from="1698320040552" duration="9003000" />
+      <workItem from="1698320040552" duration="9275000" />
     </task>
     <task id="LOCAL-00001" summary="New application">
       <option name="closed" value="true" />
@@ -363,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698224245183</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Made unitTests, Ready for demo">
+      <option name="closed" value="true" />
+      <created>1698341276783</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698341276783</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +368,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="Used new clean architecture" />
     <MESSAGE value="Clean architecture, Database connected, Post retrieval(Not finished), Post create" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean architecture, Database connected, Post retrieval(Not finished), Post create" />
+    <MESSAGE value="Made unitTests, Ready for demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made unitTests, Ready for demo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
