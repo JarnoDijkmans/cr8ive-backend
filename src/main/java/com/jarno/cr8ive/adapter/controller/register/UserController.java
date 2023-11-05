@@ -1,7 +1,7 @@
 package com.jarno.cr8ive.adapter.controller.register;
 
 
-import com.jarno.cr8ive.business.boundaries.input.register.IUserRegisterBoundary;
+import com.jarno.cr8ive.business.boundaries.input.IUserBoundary;
 import com.jarno.cr8ive.business.exeption.UserCustomException;
 import com.jarno.cr8ive.business.model.request.CreateUserRequestModel;
 import com.jarno.cr8ive.business.model.response.CreateUserResponseModel;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 @CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
-    private final IUserRegisterBoundary inputBoundary;
+    private final IUserBoundary inputBoundary;
 
     @Autowired
-    public UserController(IUserRegisterBoundary inputBoundary) {
+    public UserController(IUserBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }
 

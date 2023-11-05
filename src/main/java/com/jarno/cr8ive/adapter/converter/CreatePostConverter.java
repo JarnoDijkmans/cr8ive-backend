@@ -13,9 +13,7 @@ import java.util.Set;
 
 public class CreatePostConverter {
 
-    private CreatePostConverter(){
-
-    }
+    private CreatePostConverter(){}
     public static PostJpaMapper toPostJpaMapper(Post post, Set<HashtagJpaMapper> hashtagJpaMappers) {
         List<ContentJpaMapper> contentJpaMappers = mapContent(post.getContent());
         return PostJpaMapper.builder()

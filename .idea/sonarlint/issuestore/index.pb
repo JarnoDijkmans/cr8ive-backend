@@ -11,8 +11,6 @@ Lsrc/main/java/com/jarno/cr8ive/adapter/gateways/mapper/HashtagJpaMapper.java,1
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 ä
 Zsrc/main/java/com/jarno/cr8ive/business/boundaries/output/register/IPostExistsGateway.java,3\c\3ca8f093dcb8575903f472c9a9c32027bb3bf796
-u
-Esrc/main/java/com/jarno/cr8ive/business/presenter/IPostPresenter.java,d\1\d16beba703d2c8f1987bf6d8bce1457b9701685b
 c
 3src/main/java/com/jarno/cr8ive/domain/Hashtags.java,e\a\ea133a4b5cd98aa42a3b26ee0fd1484497f40cfd
 7
@@ -56,8 +54,6 @@ y
 Isrc/main/java/com/jarno/cr8ive/adapter/converter/CreateUserConverter.java,7\6\7606226ac703de236863b053ef7b8c75bc84970a
 ~
 Nsrc/main/java/com/jarno/cr8ive/adapter/converter/GetPostByUserIdConverter.java,2\0\20c524e0158724d2a517aeab694a3290eaf079c2
-s
-Csrc/main/java/com/jarno/cr8ive/adapter/presenter/PostPresenter.java,8\0\8002f0e72bd727a5bfc86cb337fa8c74789a6af0
 {
 Ksrc/main/java/com/jarno/cr8ive/adapter/repositories/IHashtagRepository.java,5\f\5f19850d8c3480560d015b3a42ddfd4c92f6e315
 Å
@@ -72,8 +68,6 @@ z
 Jsrc/main/java/com/jarno/cr8ive/business/converter/CreateUserConverter.java,4\3\4347eac4d2035943cd22f7622d54bd08b7f89b5a
 
 Osrc/main/java/com/jarno/cr8ive/business/converter/GetPostByUserIdConverter.java,0\6\06c0d8d058326f8d4ce4b89372b4a13daa713c8b
-u
-Esrc/main/java/com/jarno/cr8ive/business/presenter/IUserPresenter.java,9\5\9589715173fda8eee100f7930170e5a3fd24b324
 å
 \src/main/java/com/jarno/cr8ive/business/boundaries/output/register/IUserRegisterGateway.java,8\c\8c2a15b8e07e4609b93b91c1ab57d9f87f7010ec
 c
@@ -84,8 +78,6 @@ y
 Isrc/main/java/com/jarno/cr8ive/adapter/converter/CreatePostConverter.java,3\3\33231c955537ad9695506fd51f15f3efad1a3614
 q
 Asrc/main/java/com/jarno/cr8ive/business/services/UserService.java,e\a\eaa3ce70711a0a400f5035fd5d8d428aa06bda69
-s
-Csrc/main/java/com/jarno/cr8ive/adapter/presenter/UserPresenter.java,3\b\3ba4bce2a5d5d039e3153dbf8c76fbc22eaa1747
 É
 Ssrc/main/java/com/jarno/cr8ive/adapter/gateways/mySql/UserCreationMySqlGateway.java,7\3\73977685718883b07ed0743c8e16a4763295c12b
 q
@@ -112,8 +104,6 @@ Hsrc/main/java/com/jarno/cr8ive/adapter/config/FileStorageProperties.java,b\6\b
 Q.idea/sonarlint/securityhotspotstore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302,3\0\30205a209c6ce77c4cfc19a09e6f57c588b7fb88
 w
 G.idea/sonarlint/issuestore/3/3/33231c955537ad9695506fd51f15f3efad1a3614,0\8\08c1a1cbc18ebc392c0e6d7d97f069ecc0ca461e
-w
-G.idea/sonarlint/issuestore/3/b/3ba4bce2a5d5d039e3153dbf8c76fbc22eaa1747,b\8\b84b70e42fc3024686507c199d6252aa3da20a02
 Å
 Q.idea/sonarlint/securityhotspotstore/a/b/ab57b5a66c4e7896b8012245628fe7f7c441a98f,5\3\53270888287a939aafeaf7ed4839d136182fa553
 w
@@ -155,8 +145,6 @@ G.idea/sonarlint/issuestore/e/7/e789e607a956394e0629caea2117f08906871500,9\8\98
 w
 G.idea/sonarlint/issuestore/e/3/e3c70399a9a34df58bdda71a46db2038c5af1e15,e\0\e0d7d67f2f69b40bd4105b1f1614a4f6a59d2b82
 w
-G.idea/sonarlint/issuestore/d/1/d16beba703d2c8f1987bf6d8bce1457b9701685b,2\5\2578ffd97d960fedfc25f93bdd48b0da7969066a
-w
 G.idea/sonarlint/issuestore/c/2/c2526b050e68804167aa654fa062819ff4777ee0,2\c\2cc4431edcc781c9a39956e0b537794a828260bd
 w
 G.idea/sonarlint/issuestore/b/a/ba518863c606448c6375be2b36c3d904061c36be,d\a\dab53a486ac3d86c21bc1e0d2ceb04b5ff3d13ea
@@ -169,13 +157,9 @@ S
 Å
 Q.idea/sonarlint/securityhotspotstore/9/4/947eda7fa682b84ed4a1d6c7c8bf5a3548aad8d3,1\0\1040c092aaab18982807882ce00ac80ce061b6f5
 Å
-Q.idea/sonarlint/securityhotspotstore/9/5/9589715173fda8eee100f7930170e5a3fd24b324,3\c\3c757bd5a05e96c2c437f2cdaff2794ca64d31b6
-Å
 Q.idea/sonarlint/securityhotspotstore/9/b/9b11583a8d8dcaa56e6961e4d94a30486486b56b,a\7\a7ebd03f04e129d4a1ba5e7b81d0ecb514cb063b
 Å
 Q.idea/sonarlint/securityhotspotstore/9/d/9d5be20c1846bde4e2fcf416cd9831898de8b761,a\7\a7d98348993ecd1965ee1588ac53cfd96ee57eb7
-Å
-Q.idea/sonarlint/securityhotspotstore/8/0/8002f0e72bd727a5bfc86cb337fa8c74789a6af0,a\a\aa2acb6438d64b5b428ada4d455ae011bdc2f331
 Å
 Q.idea/sonarlint/securityhotspotstore/8/0/80398381f753fc671fb19ce4b0d98266a970c508,5\8\58b3c6b1334a49a344a8931ff15b8e41b3c4c5fe
 Å
@@ -216,8 +200,6 @@ Q.idea/sonarlint/securityhotspotstore/3/c/3ca8f093dcb8575903f472c9a9c32027bb3bf7
 Q.idea/sonarlint/securityhotspotstore/3/f/3f7486fc76d108a1d7b8d6e3847b11c24b9f248f,0\f\0fa5897aa9e6581999b8ff129d6a79624b4c9ffd
 Å
 Q.idea/sonarlint/securityhotspotstore/3/3/33231c955537ad9695506fd51f15f3efad1a3614,7\c\7c0e102f49fc13619e91328d91785a19f258c0be
-Å
-Q.idea/sonarlint/securityhotspotstore/3/b/3ba4bce2a5d5d039e3153dbf8c76fbc22eaa1747,a\a\aa0908e2e473f0191e0002028859cdb8a2830b58
 Å
 Q.idea/sonarlint/securityhotspotstore/2/e/2efa4e04e6ace6f7bcc5ee44dcf76087d160b164,6\3\63cbefb1aa463f4ea0505220a7082ad0bf1d9ef6
 Å
@@ -282,8 +264,6 @@ Q.idea/sonarlint/securityhotspotstore/e/8/e86a801f62eba6b1c7dcbb9e28e5967820ef45
 Q.idea/sonarlint/securityhotspotstore/e/a/ea133a4b5cd98aa42a3b26ee0fd1484497f40cfd,7\5\7583e15cee8ea94c8f8ae813bcc130c3109424f2
 w
 G.idea/sonarlint/issuestore/5/8/587d266bb27a4dc3022bbed44dfa19849df3044c,0\c\0c7826cf062263dae9da9c06b073d76e6b8c20d9
-Å
-Q.idea/sonarlint/securityhotspotstore/d/1/d16beba703d2c8f1987bf6d8bce1457b9701685b,1\4\1413ecfa6292dc22e8e989fadc9d25c39dbf7be4
 w
 G.idea/sonarlint/issuestore/4/a/4afe3bce9c800802a3742f53c836a7ba862b26cc,2\c\2ca510c1982ddc872636b54d7bb41cb4493e4e60
 Å

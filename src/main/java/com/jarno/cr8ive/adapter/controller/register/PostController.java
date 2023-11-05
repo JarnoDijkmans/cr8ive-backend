@@ -1,6 +1,6 @@
 package com.jarno.cr8ive.adapter.controller.register;
 
-import com.jarno.cr8ive.business.boundaries.input.register.IPostRegisterBoundary;
+import com.jarno.cr8ive.business.boundaries.input.IPostBoundary;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.response.CreatePostResponseModel;
@@ -17,10 +17,10 @@ import java.util.List;
 @RequestMapping("/posts")
 @CrossOrigin(origins = "http://localhost:5173")
 public class PostController {
-    private final IPostRegisterBoundary inputBoundary;
+    private final IPostBoundary inputBoundary;
 
     @Autowired
-    public PostController(IPostRegisterBoundary inputBoundary) {
+    public PostController(IPostBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }
 

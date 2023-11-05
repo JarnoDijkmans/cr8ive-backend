@@ -3,14 +3,14 @@ package com.jarno.cr8ive.adapter.gateways.mySql;
 import com.jarno.cr8ive.adapter.converter.CreateUserConverter;
 import com.jarno.cr8ive.adapter.gateways.mapper.UserJpaMapper;
 import com.jarno.cr8ive.adapter.repositories.IUserRepository;
-import com.jarno.cr8ive.business.boundaries.output.register.IUserRegisterGateway;
+import com.jarno.cr8ive.business.boundaries.output.IUserGateway;
 import com.jarno.cr8ive.domain.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @AllArgsConstructor
-public class UserCreationMySqlGateway implements IUserRegisterGateway {
+public class UserCreationMySqlGateway implements IUserGateway {
     private IUserRepository repository;
 
 
