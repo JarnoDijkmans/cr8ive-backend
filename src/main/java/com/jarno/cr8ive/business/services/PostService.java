@@ -33,7 +33,7 @@ public class PostService implements IPostBoundary {
            throw new PostCustomException("Content " + post.getContent() + " is not valid");
         }
 
-        long result = 0;
+        long result;
 
         try {
             result = gateway.save(post);

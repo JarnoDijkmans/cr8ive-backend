@@ -14,6 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 class PostServiceTest {
 
     private PostService postService;
@@ -28,7 +31,7 @@ class PostServiceTest {
     }
 
     @Test
-     void testCreatePost_Success() throws PostCustomException {
+    void testCreatePost_Success() throws PostCustomException {
         // ARRANGE
         MultipartFile sampleFile = createSampleMultipartFile();
 
@@ -41,14 +44,14 @@ class PostServiceTest {
 
         CreatePostRequestModel requestModel = new CreatePostRequestModel(contentList, "This is a description", hashtagIds, 1);
         long expectedResult = 1L;
-
-        // ACT
         Mockito.when(gateway.save(Mockito.any(Post.class))).thenReturn(expectedResult);
 
+        // ACT
+        CreatePostResponseModel responseModel = postService.create(requestModel);
 
         // ASSERT
-        CreatePostResponseModel responseModel = postService.create(requestModel);
-        Mockito.verify(responseModel);
+        Mockito.verify(gateway).save(Mockito.any(Post.class));
+        assertEquals(expectedResult, responseModel.getId());
     }
 
 
@@ -56,19 +59,13 @@ class PostServiceTest {
      void testCreatePost_Fail_ContentInvalid() throws PostCustomException {
         // ARRANGE
         List<MultipartFile> contentList = new ArrayList<>();
-
         List<Integer> hashtagIds = new ArrayList<>();
         hashtagIds.add(1);
         hashtagIds.add(2);
-
         CreatePostRequestModel requestModel = new CreatePostRequestModel(contentList, "This is a description", hashtagIds, 1);
 
-        // ACT
-        Mockito.when(gateway.save(Mockito.any(Post.class))).thenReturn(0L);
-
-        // ASSERT
-        CreatePostResponseModel responseModel = postService.create(requestModel);
-        Mockito.verify(responseModel);
+        // ACT & ASSERT
+        assertThrows(PostCustomException.class, () -> postService.create(requestModel));
     }
 
 

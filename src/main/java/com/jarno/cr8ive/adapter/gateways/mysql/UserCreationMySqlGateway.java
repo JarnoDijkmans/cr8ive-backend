@@ -1,4 +1,4 @@
-package com.jarno.cr8ive.adapter.gateways.mySql;
+package com.jarno.cr8ive.adapter.gateways.mysql;
 
 import com.jarno.cr8ive.adapter.converter.CreateUserConverter;
 import com.jarno.cr8ive.adapter.gateways.mapper.UserJpaMapper;

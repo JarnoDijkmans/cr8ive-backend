@@ -9,8 +9,6 @@ Lsrc/main/java/com/jarno/cr8ive/adapter/gateways/mapper/HashtagJpaMapper.java,1
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-ä
-Zsrc/main/java/com/jarno/cr8ive/business/boundaries/output/register/IPostExistsGateway.java,3\c\3ca8f093dcb8575903f472c9a9c32027bb3bf796
 c
 3src/main/java/com/jarno/cr8ive/domain/Hashtags.java,e\a\ea133a4b5cd98aa42a3b26ee0fd1484497f40cfd
 7
@@ -28,16 +26,12 @@ Isrc/main/java/com/jarno/cr8ive/business/exeption/PostCustomException.java,6\2\
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 y
 Isrc/main/java/com/jarno/cr8ive/business/exeption/UserCustomException.java,0\0\00d191e78b8e5e30f6c95e2c49b049250478ddb5
-å
-\src/main/java/com/jarno/cr8ive/business/boundaries/input/register/IUserRegisterBoundary.java,e\3\e3c70399a9a34df58bdda71a46db2038c5af1e15
 j
 :src/main/java/com/jarno/cr8ive/domain/UserPreferences.java,e\7\e789e607a956394e0629caea2117f08906871500
 É
 Ssrc/main/java/com/jarno/cr8ive/business/model/response/CreateUserResponseModel.java,0\4\04d1a2628a68b6bd4fdaf5f618606f1f42ad8258
 {
 Ksrc/main/java/com/jarno/cr8ive/adapter/repositories/IContentRepository.java,2\d\2dcae5f1e92c6aaf4d34bffe768f72e2e4d09bd6
-ä
-Zsrc/main/java/com/jarno/cr8ive/business/boundaries/output/register/IUserExistsGateway.java,2\8\2887ca8a4d74b5779aa4989cf5cc5a41e61564fa
 _
 /src/main/java/com/jarno/cr8ive/domain/Post.java,7\8\78a2d53129caf92391c7e05ad2280c1b3bef49d5
 y
@@ -68,8 +62,6 @@ z
 Jsrc/main/java/com/jarno/cr8ive/business/converter/CreateUserConverter.java,4\3\4347eac4d2035943cd22f7622d54bd08b7f89b5a
 
 Osrc/main/java/com/jarno/cr8ive/business/converter/GetPostByUserIdConverter.java,0\6\06c0d8d058326f8d4ce4b89372b4a13daa713c8b
-å
-\src/main/java/com/jarno/cr8ive/business/boundaries/output/register/IUserRegisterGateway.java,8\c\8c2a15b8e07e4609b93b91c1ab57d9f87f7010ec
 c
 3src/main/java/com/jarno/cr8ive/domain/Comments.java,c\2\c2526b050e68804167aa654fa062819ff4777ee0
 |
@@ -82,10 +74,6 @@ Asrc/main/java/com/jarno/cr8ive/business/services/UserService.java,e\a\eaa3ce70
 Ssrc/main/java/com/jarno/cr8ive/adapter/gateways/mySql/UserCreationMySqlGateway.java,7\3\73977685718883b07ed0743c8e16a4763295c12b
 q
 Asrc/main/java/com/jarno/cr8ive/business/services/PostService.java,3\f\3f7486fc76d108a1d7b8d6e3847b11c24b9f248f
-å
-\src/main/java/com/jarno/cr8ive/business/boundaries/input/register/IPostRegisterBoundary.java,b\a\ba518863c606448c6375be2b36c3d904061c36be
-å
-\src/main/java/com/jarno/cr8ive/business/boundaries/output/register/IPostRegisterGateway.java,8\0\80398381f753fc671fb19ce4b0d98266a970c508
 x
 Hsrc/main/java/com/jarno/cr8ive/adapter/repositories/IPostRepository.java,f\3\f3dc7315219f191a643b3a89050cbdb88d121d92
 {
@@ -276,3 +264,19 @@ b
 2src/main/java/com/jarno/cr8ive/domain/Content.java,0\7\07a027d3d6f424cb0dc06d54017ac3c006c18c1d
 u
 Esrc/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java,f\6\f6d1bc6f909346e637b184d72a749a0fa094f1dc
+{
+Ksrc/main/java/com/jarno/cr8ive/business/boundaries/input/IUserBoundary.java,9\b\9b63989470115b90b699bdf2b0932056f23a2d1b
+{
+Ksrc/main/java/com/jarno/cr8ive/business/boundaries/output/IUserGateway.java,0\4\042963571d0a07a0b5e0308a8bf91e839768bd41
+Å
+Qsrc/main/java/com/jarno/cr8ive/business/boundaries/output/IUserExistsGateway.java,8\2\82988f4ff529a65e15bf8d598e79a8605b131660
+{
+Ksrc/main/java/com/jarno/cr8ive/business/boundaries/output/IPostGateway.java,a\7\a79fad18319448de2fc459355d8275d5fdca8627
+Å
+Qsrc/main/java/com/jarno/cr8ive/business/boundaries/output/IPostExistsGateway.java,b\1\b134f81a1911a89700aee422d7b81c3dbc032d49
+{
+Ksrc/main/java/com/jarno/cr8ive/business/boundaries/input/IPostBoundary.java,f\b\fb5f934f49128dde20f368fc58ea735b7636c0b5
+É
+Ssrc/main/java/com/jarno/cr8ive/adapter/gateways/mysql/UserCreationMySqlGateway.java,a\a\aab85568afcf5ab6a4e4d936f013c412bbf77b79
+{
+Ksrc/main/java/com/jarno/cr8ive/adapter/gateways/mysql/PostMySqlGateway.java,7\0\70af8998447f675b1d1f89b3ff407317dfbf1ba3
