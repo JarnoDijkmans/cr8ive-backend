@@ -5,11 +5,14 @@ import com.jarno.cr8ive.business.boundaries.output.IUserGateway;
 import com.jarno.cr8ive.business.converter.CreateUserConverter;
 import com.jarno.cr8ive.business.exeption.UserCustomException;
 import com.jarno.cr8ive.business.model.request.CreateUserRequestModel;
-import com.jarno.cr8ive.business.model.response.CreateUserResponseModel;
+import com.jarno.cr8ive.business.model.response.post.CreateUserResponseModel;
+import com.jarno.cr8ive.business.model.response.user.GetAllUsersResponseModel;
 import com.jarno.cr8ive.domain.User;
 import lombok.AllArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -21,7 +24,7 @@ public class UserService implements IUserBoundary {
     @Override
     public CreateUserResponseModel create (CreateUserRequestModel requestModel) throws UserCustomException {
 
-        long result = 0;
+        long result;
         try {
             String salt = BCrypt.gensalt();
             String hashedPassword = BCrypt.hashpw(requestModel.getPassword(), salt);
@@ -35,5 +38,18 @@ public class UserService implements IUserBoundary {
             throw new UserCustomException("Save was unsuccessful");
         }
         return new CreateUserResponseModel(result);
+    }
+
+    @Override
+    public GetAllUsersResponseModel getUsersByName (String name) throws UserCustomException{
+        //If statement so that searches do not allow numbers.
+        List<User> users;
+        try{
+            users = gateway.getUsersByName(name);
+        }
+        catch(Exception e){
+            throw new UserCustomException("Problem with finding users");
+        }
+        return new GetAllUsersResponseModel(users);
     }
 }

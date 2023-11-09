@@ -1,8 +1,8 @@
-package com.jarno.cr8ive.adapter.converter;
+package com.jarno.cr8ive.persistance.converter;
 
-import com.jarno.cr8ive.adapter.gateways.mapper.ContentJpaMapper;
-import com.jarno.cr8ive.adapter.gateways.mapper.HashtagJpaMapper;
-import com.jarno.cr8ive.adapter.gateways.mapper.PostJpaMapper;
+import com.jarno.cr8ive.persistance.gateways.mapper.ContentJpaMapper;
+import com.jarno.cr8ive.persistance.gateways.mapper.HashtagJpaMapper;
+import com.jarno.cr8ive.persistance.gateways.mapper.PostJpaMapper;
 import com.jarno.cr8ive.domain.Content;
 import com.jarno.cr8ive.domain.Post;
 

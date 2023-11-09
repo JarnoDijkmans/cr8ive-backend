@@ -1,6 +1,6 @@
 package com.jarno.cr8ive.business.services;
 
-import com.jarno.cr8ive.adapter.config.FileStorageProperties;
+import com.jarno.cr8ive.persistance.config.FileStorageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

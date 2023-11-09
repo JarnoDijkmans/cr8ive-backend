@@ -1,6 +1,6 @@
 package com.jarno.cr8ive.business.converter;
 
-import com.jarno.cr8ive.business.model.response.GetUserPostsResponseModel;
+import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
 import com.jarno.cr8ive.domain.Hashtags;
 import com.jarno.cr8ive.domain.Post;
 

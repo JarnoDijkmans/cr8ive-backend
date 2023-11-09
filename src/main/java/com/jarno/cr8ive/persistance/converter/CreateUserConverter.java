@@ -1,8 +1,6 @@
-package com.jarno.cr8ive.adapter.converter;
+package com.jarno.cr8ive.persistance.converter;
 
-import com.jarno.cr8ive.adapter.gateways.mapper.PostJpaMapper;
-import com.jarno.cr8ive.adapter.gateways.mapper.UserJpaMapper;
-import com.jarno.cr8ive.domain.Post;
+import com.jarno.cr8ive.persistance.gateways.mapper.UserJpaMapper;
 import com.jarno.cr8ive.domain.User;
 
 public class CreateUserConverter {

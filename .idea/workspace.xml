@@ -4,17 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="Sonarqube">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/0/70af8998447f675b1d1f89b3ff407317dfbf1ba3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/0/70af8998447f675b1d1f89b3ff407317dfbf1ba3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="Changed folder structure">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/user/GetAllUsersResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/GetUsersConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/FileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/PostController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mysql/PostMySqlGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mysql/PostMySqlGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/config/FileStorageProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/config/FileStorageProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/converter/CreatePostConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/CreatePostConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/converter/CreateUserConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/CreateUserConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/converter/GetPostByUserIdConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/GetPostByUserIdConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/converter/HashtagConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/HashtagConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mapper/ContentJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/gateways/mapper/ContentJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mapper/HashtagJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/gateways/mapper/HashtagJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mapper/PostJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/gateways/mapper/PostJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mapper/UserJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/gateways/mapper/UserJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/gateways/mysql/UserCreationMySqlGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/gateways/mysql/UserCreationMySqlGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/repositories/IContentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repositories/IContentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/repositories/IHashtagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repositories/IHashtagRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/repositories/IPostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repositories/IPostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/repositories/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repositories/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/input/IPostBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/input/IPostBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/input/IUserBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/input/IUserBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/output/IUserGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/output/IUserGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/converter/GetPostByUserIdConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/converter/GetPostByUserIdConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/CreatePostResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/post/CreatePostResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/CreateUserResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/post/CreateUserResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/GetUserPostsResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/post/GetUserPostsResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/StorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +67,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -302,7 +321,7 @@
       <workItem from="1699431141837" duration="27000" />
       <workItem from="1699463854286" duration="1989000" />
       <workItem from="1699538950021" duration="728000" />
-      <workItem from="1699540469852" duration="1172000" />
+      <workItem from="1699540469852" duration="8295000" />
     </task>
     <task id="LOCAL-00001" summary="New application">
       <option name="closed" value="true" />
@@ -416,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699270375688</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Changed folder structure">
+      <option name="closed" value="true" />
+      <created>1699543688443</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699543688444</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +468,8 @@
     <MESSAGE value="Made unitTests, Ready for demo" />
     <MESSAGE value="Changed folder name" />
     <MESSAGE value="Sonarqube" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sonarqube" />
+    <MESSAGE value="Changed folder structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed folder structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -451,12 +479,7 @@
           <option name="timeStamp" value="2" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/UserController.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/UserController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/controller/register/UserController.java</url>
           <line>21</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
@@ -470,9 +493,9 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/adapter/controller/register/UserController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/controller/register/UserController.java</url>
           <line>22</line>
-          <properties class="com.jarno.cr8ive.adapter.controller.register.UserController" method="create">
+          <properties class="com.jarno.cr8ive.adapter.controller.register.UserController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

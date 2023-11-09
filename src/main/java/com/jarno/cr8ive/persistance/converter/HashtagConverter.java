@@ -1,6 +1,6 @@
-package com.jarno.cr8ive.adapter.converter;
+package com.jarno.cr8ive.persistance.converter;
 
-import com.jarno.cr8ive.adapter.gateways.mapper.HashtagJpaMapper;
+import com.jarno.cr8ive.persistance.gateways.mapper.HashtagJpaMapper;
 import com.jarno.cr8ive.domain.Hashtags;
 
 public class HashtagConverter {

@@ -1,4 +1,4 @@
-package com.jarno.cr8ive.adapter.config;
+package com.jarno.cr8ive.persistance.config;
 
 import lombok.Getter;
 import lombok.Setter;

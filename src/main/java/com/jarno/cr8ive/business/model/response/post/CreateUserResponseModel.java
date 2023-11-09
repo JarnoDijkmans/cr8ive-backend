@@ -1,4 +1,4 @@
-package com.jarno.cr8ive.business.model.response;
+package com.jarno.cr8ive.business.model.response.post;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

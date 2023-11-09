@@ -3,7 +3,7 @@ package com.jarno.cr8ive.business.services;
 import com.jarno.cr8ive.business.boundaries.output.IPostGateway;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.CreatePostRequestModel;
-import com.jarno.cr8ive.business.model.response.CreatePostResponseModel;
+import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.domain.Post;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

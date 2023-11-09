@@ -1,4 +1,4 @@
-package com.jarno.cr8ive.adapter.gateways.mapper;
+package com.jarno.cr8ive.persistance.gateways.mapper;
 
 import jakarta.persistence.*;
 import lombok.Data;

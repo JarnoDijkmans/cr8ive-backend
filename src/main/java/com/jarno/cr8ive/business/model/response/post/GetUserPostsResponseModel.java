@@ -1,4 +1,4 @@
-package com.jarno.cr8ive.business.model.response;
+package com.jarno.cr8ive.business.model.response.post;
 
 import com.jarno.cr8ive.domain.Content;
 import com.jarno.cr8ive.domain.Hashtags;
