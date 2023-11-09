@@ -1,12 +1,12 @@
-package com.jarno.cr8ive.adapter.gateways.mysql;
+package com.jarno.cr8ive.persistance.gateways.mysql;
 
-import com.jarno.cr8ive.adapter.converter.CreatePostConverter;
-import com.jarno.cr8ive.adapter.converter.GetPostByUserIdConverter;
-import com.jarno.cr8ive.adapter.converter.HashtagConverter;
-import com.jarno.cr8ive.adapter.gateways.mapper.HashtagJpaMapper;
-import com.jarno.cr8ive.adapter.gateways.mapper.PostJpaMapper;
-import com.jarno.cr8ive.adapter.repositories.IHashtagRepository;
-import com.jarno.cr8ive.adapter.repositories.IPostRepository;
+import com.jarno.cr8ive.persistance.converter.CreatePostConverter;
+import com.jarno.cr8ive.persistance.converter.GetPostByUserIdConverter;
+import com.jarno.cr8ive.persistance.converter.HashtagConverter;
+import com.jarno.cr8ive.persistance.gateways.mapper.HashtagJpaMapper;
+import com.jarno.cr8ive.persistance.gateways.mapper.PostJpaMapper;
+import com.jarno.cr8ive.persistance.repositories.IHashtagRepository;
+import com.jarno.cr8ive.persistance.repositories.IPostRepository;
 import com.jarno.cr8ive.business.boundaries.output.IPostGateway;
 import com.jarno.cr8ive.domain.Hashtags;
 import com.jarno.cr8ive.domain.Post;
@@ -42,8 +42,6 @@ public class PostMySqlGateway implements IPostGateway {
                 .collect(Collectors.toSet());
 
         PostJpaMapper postJpaMapper = CreatePostConverter.toPostJpaMapper(post, hashtagJpaMappers);
-        postJpaMapper.getPostContents().forEach(content -> content.setPost(postJpaMapper));
-
         return repository.save(postJpaMapper).getId();
     }
 
