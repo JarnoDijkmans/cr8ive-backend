@@ -56,7 +56,7 @@ class PostServiceTest {
 
 
     @Test
-     void testCreatePost_Fail_ContentInvalid() throws PostCustomException {
+     void testCreatePost_Fail_ContentInvalid() {
         // ARRANGE
         List<MultipartFile> contentList = new ArrayList<>();
         List<Integer> hashtagIds = new ArrayList<>();
@@ -72,10 +72,5 @@ class PostServiceTest {
 
     private MultipartFile createSampleMultipartFile() {
         return new MockMultipartFile("file", "sample-image.jpg", "image/jpeg", "Sample Image Content".getBytes());
-    }
-
-
-    @Test
-    void findByUserId() {
     }
 }

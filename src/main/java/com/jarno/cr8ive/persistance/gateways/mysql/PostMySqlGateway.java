@@ -57,7 +57,7 @@ public class PostMySqlGateway implements IPostGateway {
                 .map(Optional::get)
                 .map(HashtagConverter::toHashtag)
                 .filter(Objects::nonNull)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override

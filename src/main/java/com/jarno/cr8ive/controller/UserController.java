@@ -29,5 +29,4 @@ public class UserController {
     public GetAllUsersResponseModel getUsersByName (@PathVariable("name") String name) throws UserCustomException {
         return this.inputBoundary.getUsersByName(name);
     }
-
 }
