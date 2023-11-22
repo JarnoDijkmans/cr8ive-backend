@@ -1,11 +1,11 @@
 package com.jarno.cr8ive.business.services;
 
-import com.jarno.cr8ive.business.boundaries.input.IPostBoundary;
-import com.jarno.cr8ive.business.boundaries.output.IPostGateway;
+import com.jarno.cr8ive.business.boundaries.services.IPostService;
+import com.jarno.cr8ive.business.boundaries.repository.IPostRepository;
 import com.jarno.cr8ive.business.converter.CreatePostConverter;
 import com.jarno.cr8ive.business.converter.GetPostByUserIdConverter;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
-import com.jarno.cr8ive.business.model.request.CreatePostRequestModel;
+import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
 import com.jarno.cr8ive.domain.Hashtags;
@@ -20,8 +20,8 @@ import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class PostService implements IPostBoundary {
-    private IPostGateway gateway;
+public class PostService implements IPostService {
+    private IPostRepository repo;
     private StorageService storageService;
 
 
@@ -36,7 +36,7 @@ public class PostService implements IPostBoundary {
         long result;
 
         try {
-            result = gateway.save(post);
+            result = repo.save(post);
 
             if (result != 0) {
                 for (MultipartFile file : requestModel.getContent()) {
@@ -58,11 +58,11 @@ public class PostService implements IPostBoundary {
         List<GetUserPostsResponseModel> responseForUser = new ArrayList<>();
 
         try {
-            List<Post> posts = gateway.findByUserId(userId);
+            List<Post> posts = repo.findByUserId(userId);
 
             for (Post post : posts) {
                 if (post.getContent() != null) {
-                    List<Hashtags> hashtagsForPost = gateway.findHashtagsById(post.getHashtagIds());
+                    List<Hashtags> hashtagsForPost = repo.findHashtagsById(post.getHashtagIds());
                     responseForUser.add(GetPostByUserIdConverter.toResponseModel(post, hashtagsForPost));
                 }
             }

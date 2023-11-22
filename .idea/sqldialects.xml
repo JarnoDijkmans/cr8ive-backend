@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/gateways/mysql/PostMySqlGateway.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V3__Create_Post_Tables.sql" dialect="MySQL" />
   </component>
 </project>

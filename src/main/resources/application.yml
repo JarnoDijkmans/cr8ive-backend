@@ -8,9 +8,20 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+  flyway:
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    enabled: true
+
 
 file:
   upload-dir: ./uploads
 
+
+
+
 spring.servlet.multipart.max-file-size: 10MB
 spring.servlet.multipart.max-request-size: 10MB
+
+jwt:
+  secret: ADQdZcCYhcmB7jDoE1C/t3f0rbN4BTH/iAk6hTE5FyqqzObXHdN2H9vVCs0JJZTOXkP64ZyjWcvitfku9/YOnA==

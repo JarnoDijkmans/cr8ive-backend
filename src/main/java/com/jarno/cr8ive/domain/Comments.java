@@ -1,5 +1,6 @@
 package com.jarno.cr8ive.domain;
 
+import com.jarno.cr8ive.domain.user.impl.PersonalAccount;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,5 +15,5 @@ import java.util.List;
 public class Comments {
     private int id;
     private List<String> comment;
-    private User user;
+    private PersonalAccount personalAccount;
 }

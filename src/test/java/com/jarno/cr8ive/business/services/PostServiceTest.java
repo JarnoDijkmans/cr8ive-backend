@@ -1,8 +1,8 @@
 package com.jarno.cr8ive.business.services;
 
-import com.jarno.cr8ive.business.boundaries.output.IPostGateway;
+import com.jarno.cr8ive.business.boundaries.repository.IPostRepository;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
-import com.jarno.cr8ive.business.model.request.CreatePostRequestModel;
+import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.domain.Post;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,12 +20,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class PostServiceTest {
 
     private PostService postService;
-    private IPostGateway gateway;
+    private IPostRepository gateway;
 
 
     @BeforeEach
     public void setUp() {
-        gateway = Mockito.mock(IPostGateway.class);
+        gateway = Mockito.mock(IPostRepository.class);
         StorageService storageService = Mockito.mock(StorageService.class);
         postService = new PostService(gateway, storageService);
     }

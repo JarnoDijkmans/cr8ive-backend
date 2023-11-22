@@ -2,8 +2,20 @@ plugins {
     id 'org.springframework.boot' version '3.1.0'
     id 'io.spring.dependency-management' version '1.1.0'
     id "org.sonarqube" version "4.2.1.3168"
+    id 'org.flywaydb.flyway' version '7.15.0'
     id 'java'
     id 'jacoco'
+}
+
+flyway {
+    url = 'jdbc:mysql://localhost:3306/cr8ive'
+    user = 'root'
+    password = '!Gaptunklas7'
+    locations = ['classpath:db/migration']
+}
+
+flywayMigrate {
+    dependsOn flywayInfo
 }
 
 group = 'com.jarno.cr8ive'
@@ -22,9 +34,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'mysql:mysql-connector-java:8.0.28'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'org.flywaydb:flyway-mysql'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.mindrot:jbcrypt:0.4'

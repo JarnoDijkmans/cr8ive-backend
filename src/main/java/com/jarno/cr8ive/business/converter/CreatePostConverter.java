@@ -1,6 +1,6 @@
 package com.jarno.cr8ive.business.converter;
 
-import com.jarno.cr8ive.business.model.request.CreatePostRequestModel;
+import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.domain.Content;
 import com.jarno.cr8ive.domain.Post;
 import org.springframework.web.multipart.MultipartFile;
