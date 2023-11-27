@@ -20,9 +20,4 @@ public class AccessTokenImpl implements AccessToken {
         this.userId = userId;
         this.roles = roles != null ? Set.copyOf(roles) : Collections.emptySet();
     }
-
-    @Override
-    public boolean hasRole(String roleName) {
-        return this.roles.contains(roleName);
-    }
 }

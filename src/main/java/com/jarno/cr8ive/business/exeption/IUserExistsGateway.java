@@ -1,5 +1,5 @@
 package com.jarno.cr8ive.business.exeption;
 
 public interface IUserExistsGateway {
-    boolean existsById(String id);
+    boolean existsById(Long id);
 }

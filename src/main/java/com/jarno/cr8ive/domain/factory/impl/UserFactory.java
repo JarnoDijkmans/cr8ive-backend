@@ -13,8 +13,8 @@ import java.util.Set;
 @Configuration
 public class UserFactory implements IUserFactory {
     @Override
-    public PersonalAccount CreatePersonalAccount(long id, String firstName, String lastName, String phoneNumber, String emailAddress, String birthday, String profilePicture, Set<Roles> userRoles, String passwordHash, String personalSpecificField){
-        return new PersonalAccount(id, firstName, lastName, phoneNumber, emailAddress,  birthday,  profilePicture, userRoles, passwordHash, personalSpecificField);
+    public PersonalAccount CreatePersonalAccount(long id, String firstName, String lastName, String emailAddress, String birthday, String profilePicture, Set<Roles> userRoles, String passwordHash){
+        return new PersonalAccount(id, firstName, lastName, emailAddress,  birthday,  profilePicture, userRoles, passwordHash);
     }
 
     @Override

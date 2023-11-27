@@ -16,7 +16,7 @@ public class PersonalAccount implements IUser {
     private final long id;
     private final String firstName;
     private final String lastName;
-    private final String phoneNumber;
+    private String phoneNumber;
     private final String emailAddress;
     private final String birthday;
     private final String profilePicture;
@@ -29,7 +29,7 @@ public class PersonalAccount implements IUser {
     private List<Long> followList;
     private List<Long> followingList;
     @Getter
-    private final String personalSpecificField;
+    private String personalSpecificField;
 
     @Override
     public long getId() {
@@ -57,7 +57,7 @@ public class PersonalAccount implements IUser {
     }
 
     @Override
-    public String getBirthday() {
+    public String getBirthdate() {
         return birthday;
     }
 

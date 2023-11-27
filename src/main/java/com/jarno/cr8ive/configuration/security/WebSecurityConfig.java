@@ -3,6 +3,8 @@ package com.jarno.cr8ive.configuration.security;
 import com.jarno.cr8ive.configuration.security.auth.AuthenticationRequestFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 @EnableMethodSecurity(jsr250Enabled = true)
 @Configuration
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebSecurityConfig {
 
     @Bean
@@ -30,13 +33,13 @@ public class WebSecurityConfig {
                 .sessionManagement(configurer ->
                         configurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(registry ->
-                        registry.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()                 // CORS pre-flight requests should be public
-                                .requestMatchers(HttpMethod.POST, "/posts","/users", "/tokens").permitAll() // Creating a student and login are public
-                                .requestMatchers(HttpMethod.GET, "/users/{name}", "/api/files/user/{userId}/{fileName}", "/api/files/{postId}/{fileName}", "/users/byId/{id}" ,"/posts/{id}").permitAll()
-                                .anyRequest().authenticated()                                             // Everything else --> authentication required, which is Spring security's default behaviour
+                        registry.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/tokens", "/users/register").permitAll()
+                                .anyRequest().authenticated()
                 )
                 .exceptionHandling(configure -> configure.authenticationEntryPoint(authenticationEntryPoint))
                 .addFilterBefore(authenticationRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
         return httpSecurity.build();
     }
 

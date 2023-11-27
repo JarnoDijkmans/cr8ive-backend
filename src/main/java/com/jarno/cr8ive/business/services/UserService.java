@@ -43,11 +43,18 @@ public class UserService implements IUserService {
             Set<Roles> userRoles = new HashSet<>();
             userRoles.add(role);
 
+            String filename;
+            if (requestModel.getProfilePicture() != null){
+                filename = requestModel.getProfilePicture().getOriginalFilename();
+            }
+            else {
+                filename = "default-image-url.png";
+            }
             IUser user;
             if (requestModel instanceof CreatePersonalUserRequestModel personalRequestModel){
-                user = factory.CreatePersonalAccount(0, personalRequestModel.getFirstName(), personalRequestModel.getLastName(), personalRequestModel.getPhoneNumber(), personalRequestModel.getEmailAddress(), personalRequestModel.getBirthday(), personalRequestModel.getProfilePicture().getOriginalFilename(), userRoles, hashedPassword, personalRequestModel.getPersonalSpecificField());
+                user = factory.CreatePersonalAccount(0, personalRequestModel.getFirstName(), personalRequestModel.getLastName(), personalRequestModel.getEmailAddress(), personalRequestModel.getBirthday(), filename, userRoles, hashedPassword);
             }else if (requestModel instanceof CreateBusinessRequestModel businessRequestModel){
-                user = factory.CreateBusinessAccount(0, businessRequestModel.getFirstName(), businessRequestModel.getLastName(), businessRequestModel.getPhoneNumber(), businessRequestModel.getEmailAddress(), businessRequestModel.getBirthday(), businessRequestModel.getProfilePicture().getOriginalFilename(), userRoles, hashedPassword);
+                user = factory.CreateBusinessAccount(0, businessRequestModel.getFirstName(), businessRequestModel.getLastName(), businessRequestModel.getPhoneNumber(), businessRequestModel.getEmailAddress(), businessRequestModel.getBirthday(), filename, userRoles, hashedPassword);
             }
             else {
                 throw new UserCustomException("Something went wrong");
@@ -57,7 +64,7 @@ public class UserService implements IUserService {
                 storageService.storeUserProfilePicture(result, requestModel.getProfilePicture());
             }
         } catch (Exception e){
-            throw new UserCustomException("Save was unsuccessful");
+            throw e;
         }
         return new CreateUserResponseModel(result);
     }

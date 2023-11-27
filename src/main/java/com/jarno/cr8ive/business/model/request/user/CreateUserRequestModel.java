@@ -10,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class CreateUserRequestModel {
     private String firstName;
     private String lastName;
-    private String phoneNumber;
     private String emailAddress;
     private String birthday;
     private String password;

@@ -1,7 +1,7 @@
 
-Y	java:S107"=Method has 10 parameters, which is greater than 7 authorized.(Æ†£Ä8ÔçÉó½1
+]	java:S107"<Method has 8 parameters, which is greater than 7 authorized.(êá¬òÿÿÿÿÿ8ÔçÉó½1
 ]	java:S107"<Method has 9 parameters, which is greater than 7 authorized.(ÄŒì¾úÿÿÿÿ8ÖçÉó½1
 ^	java:S107"=Method has 15 parameters, which is greater than 7 authorized.(ã“Ïÿÿÿÿÿ8ÍãĞ“¾1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ†£Ä8ÖçÉó½1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êá¬òÿÿÿÿÿ8ÖçÉó½1
 o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄŒì¾úÿÿÿÿ8×çÉó½1
 o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã“Ïÿÿÿÿÿ8ÎãĞ“¾1

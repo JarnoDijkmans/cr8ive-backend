@@ -54,7 +54,7 @@ public class BusinessAccount implements IUser {
     }
 
     @Override
-    public String getBirthday() {
+    public String getBirthdate() {
         return birthday;
     }
 

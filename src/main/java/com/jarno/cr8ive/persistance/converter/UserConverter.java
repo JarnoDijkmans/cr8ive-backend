@@ -11,4 +11,5 @@ public interface UserConverter {
     List<IUser> toUserList(List<UserJpaMapper> userJpaMappers);
 
     UserJpaMapper toUserJpaMapper(IUser user);
+
 }

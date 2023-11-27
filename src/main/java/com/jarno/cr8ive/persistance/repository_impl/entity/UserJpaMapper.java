@@ -57,13 +57,12 @@ public class UserJpaMapper {
     @Column(name = "password_hash")
     private String passwordHash;
 
-    public UserJpaMapper(long id, String firstName, String lastName, String phoneNumber, String emailAddress, String birthday, String profilePicture, Set<RolesJpaMapper> roles, String passwordHash) {
+    public UserJpaMapper(long id, String firstName, String lastName, String emailAddress, String birthdate, String profilePicture, Set<RolesJpaMapper> roles, String passwordHash) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
-        this.birthday = birthday;
+        this.birthday = birthdate;
         this.profilePicture = profilePicture;
         this.userRoles = roles;
         this.passwordHash = passwordHash;

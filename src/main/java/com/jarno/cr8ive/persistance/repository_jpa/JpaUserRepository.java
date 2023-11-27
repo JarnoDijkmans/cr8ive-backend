@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface JpaUserRepository extends JpaRepository <UserJpaMapper, String> {
+public interface JpaUserRepository extends JpaRepository <UserJpaMapper, Long> {
     @Query("SELECT u FROM UserJpaMapper u WHERE LOWER(u.firstName) LIKE LOWER(CONCAT('%', :name, '%'))")
     List<UserJpaMapper> findUsersByName(@Param("name") String name);
 

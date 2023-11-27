@@ -37,6 +37,7 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'org.flywaydb:flyway-mysql'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'commons-io:commons-io:2.6'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
@@ -44,6 +45,7 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework:spring-test'
     implementation 'org.mindrot:jbcrypt:0.4'
 }
 

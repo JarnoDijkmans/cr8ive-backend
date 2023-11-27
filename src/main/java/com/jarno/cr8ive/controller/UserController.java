@@ -22,9 +22,9 @@ public class UserController {
         this.service = service;
     }
 
-    @PostMapping
-    public CreateUserResponseModel createPersonalAccount (@RequestPart("profilePicture") MultipartFile profilePicture, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("phoneNumber") String phoneNumber, @RequestParam("emailAddress") String emailAddress, @RequestParam("birthday") String birthday, @RequestParam("password") String password, @RequestParam("personalSpecificField") String personalSpecificField) throws UserCustomException {
-        CreatePersonalUserRequestModel requestModel = new CreatePersonalUserRequestModel(firstName, lastName, phoneNumber, emailAddress, birthday, profilePicture, password, personalSpecificField);
+    @PostMapping("/register")
+    public CreateUserResponseModel createPersonalAccount (@RequestPart(required = false) MultipartFile profilePicture, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("emailAddress") String emailAddress, @RequestParam("birthdate") String birthdate, @RequestParam("password") String password) throws UserCustomException {
+        CreatePersonalUserRequestModel requestModel = new CreatePersonalUserRequestModel(firstName, lastName, emailAddress, birthdate, profilePicture, password);
         return this.service.createPersonalAccount(requestModel);
     }
 

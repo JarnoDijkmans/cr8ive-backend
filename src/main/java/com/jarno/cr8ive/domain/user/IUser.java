@@ -12,7 +12,7 @@ public interface IUser {
     String getLastName();
     String getPhoneNumber();
     String getEmailAddress();
-    String getBirthday();
+    String getBirthdate();
     String getProfilePicture();
     Set<Roles> getUserRoles();
     String getLocation();
