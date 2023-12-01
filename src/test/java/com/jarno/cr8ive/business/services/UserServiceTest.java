@@ -2,6 +2,7 @@ package com.jarno.cr8ive.business.services;
 
 import com.jarno.cr8ive.business.boundaries.repository.IUserRepository;
 import com.jarno.cr8ive.business.exeption.UserCustomException;
+import com.jarno.cr8ive.business.model.request.user.CreateBusinessRequestModel;
 import com.jarno.cr8ive.business.model.request.user.CreatePersonalUserRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreateUserResponseModel;
 import com.jarno.cr8ive.business.model.response.user.GetAllUsersResponseModel;
@@ -35,8 +36,8 @@ class UserServiceTest {
         userService = new UserService(gateway, factory, storageService);
 
         mockUser = Mockito.mock(IUser.class);
-        Mockito.when(factory.CreatePersonalAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
-        Mockito.when(factory.CreateBusinessAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
+        Mockito.when(factory.createPersonalAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
+        Mockito.when(factory.createBusinessAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
 
         Mockito.doNothing().when(storageService).storeUserProfilePicture(any(IUser.class), any(MultipartFile.class));
     }
@@ -48,7 +49,21 @@ class UserServiceTest {
         CreatePersonalUserRequestModel requestModel = new CreatePersonalUserRequestModel("jarno", "dijkmans", "jarnodijkmans@gmail.com", "2002-01-12", "test123", sampleFile);
 
         // Act
-        CreateUserResponseModel responseModel = userService.createPersonalAccount(requestModel);
+        CreateUserResponseModel responseModel = userService.createAccount(requestModel);
+
+        // Assert
+        assertNotNull(responseModel);
+        verify(gateway, times(1)).save(any(IUser.class));
+    }
+
+    @Test
+    void testCreateBusinessAccount_Successfully() throws UserCustomException {
+        // Arrange
+        MultipartFile sampleFile = createSampleMultipartFile();
+        CreateBusinessRequestModel requestModel = new CreateBusinessRequestModel("jarno", "dijkmans", "0612137055","jarnodijkmans@gmail.com", "2002-01-12", "test123", sampleFile);
+
+        // Act
+        CreateUserResponseModel responseModel = userService.createAccount(requestModel);
 
         // Assert
         assertNotNull(responseModel);
@@ -64,7 +79,20 @@ class UserServiceTest {
         when(gateway.existsByEmailAddress(anyString())).thenReturn(true);
 
         // Act and Assert
-        assertThrows(UserCustomException.class, () -> userService.createPersonalAccount(requestModel));
+        assertThrows(UserCustomException.class, () -> userService.createAccount(requestModel));
+        verify(gateway, times(1)).existsByEmailAddress(anyString());
+    }
+
+    @Test
+    void testCreateBusinessAccount_ThrowsException(){
+        // Arrange
+        MultipartFile sampleFile = createSampleMultipartFile();
+        CreateBusinessRequestModel requestModel = new CreateBusinessRequestModel("jarno", "dijkmans", "0612137055","jarnodijkmans@gmail.com", "2002-01-12", "test123", sampleFile);
+
+        when(gateway.existsByEmailAddress(anyString())).thenReturn(true);
+
+        // Act and Assert
+        assertThrows(UserCustomException.class, () -> userService.createAccount(requestModel));
         verify(gateway, times(1)).existsByEmailAddress(anyString());
     }
 

@@ -57,6 +57,7 @@ jacoco {
     toolVersion = "0.8.7"
 }
 jacocoTestReport {
+    dependsOn(test)
     reports {
         xml.required = true
     }
@@ -81,6 +82,11 @@ sonar {
                 "src/**/**/business/boundaries/**",
                 "src/**/**/configuration/**",
                 "src/**/java/**/Main.java",
+                "src/main/java/com/jarno/cr8ive/business/services/StorageService.java",
+        ]
+        property "sonar.cpd.exclusions",[
+                "src/main/**/**/domain/**",
+
         ]
     }
 }

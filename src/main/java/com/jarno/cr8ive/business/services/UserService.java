@@ -30,7 +30,7 @@ public class UserService implements IUserService {
     private StorageService storageService;
 
     @Override
-    public CreateUserResponseModel createPersonalAccount (CreateUserRequestModel requestModel) throws UserCustomException {
+    public CreateUserResponseModel createAccount (CreateUserRequestModel requestModel) throws UserCustomException {
 
         if (repo.existsByEmailAddress(requestModel.getEmailAddress()))
         {
@@ -55,9 +55,9 @@ public class UserService implements IUserService {
                 filename = "default-image-url.png";
             }
             if (requestModel instanceof CreatePersonalUserRequestModel personalRequestModel){
-                user = factory.CreatePersonalAccount(0, personalRequestModel.getFirstName(), personalRequestModel.getLastName(), personalRequestModel.getEmailAddress(), personalRequestModel.getBirthday(), filename, userRoles, hashedPassword);
+                user = factory.createPersonalAccount(0, personalRequestModel.getFirstName(), personalRequestModel.getLastName(), personalRequestModel.getEmailAddress(), personalRequestModel.getBirthday(), filename, userRoles, hashedPassword);
             }else if (requestModel instanceof CreateBusinessRequestModel businessRequestModel){
-                user = factory.CreateBusinessAccount(0, businessRequestModel.getFirstName(), businessRequestModel.getLastName(), businessRequestModel.getPhoneNumber(), businessRequestModel.getEmailAddress(), businessRequestModel.getBirthday(), filename, userRoles, hashedPassword);
+                user = factory.createBusinessAccount(0, businessRequestModel.getFirstName(), businessRequestModel.getLastName(), businessRequestModel.getPhoneNumber(), businessRequestModel.getEmailAddress(), businessRequestModel.getBirthday(), filename, userRoles, hashedPassword);
             }
             else {
                 throw new UserCustomException("Something went wrong");

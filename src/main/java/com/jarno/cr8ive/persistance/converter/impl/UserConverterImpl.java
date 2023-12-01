@@ -47,10 +47,10 @@ public class UserConverterImpl implements UserConverter {
     private IUser mapToUser(UserJpaMapper jpaMapper) {
         IUser user;
         if (jpaMapper instanceof PersonalAccountJpaMapper personal) {
-            user = factory.CreatePersonalAccount(personal.getId(), personal.getFirstName(), personal.getLastName(), personal.getEmailAddress(), personal.getBirthday(), personal.getProfilePicture(), roleConverter.toRoles(personal.getUserRoles()), personal.getPasswordHash());
+            user = factory.createPersonalAccount(personal.getId(), personal.getFirstName(), personal.getLastName(), personal.getEmailAddress(), personal.getBirthday(), personal.getProfilePicture(), roleConverter.toRoles(personal.getUserRoles()), personal.getPasswordHash());
         }
         else if (jpaMapper instanceof BusinessAccountJpaMapper business){
-            user = factory.CreateBusinessAccount(business.getId(), business.getFirstName(), business.getLastName(), business.getPhoneNumber(), business.getEmailAddress(), business.getBirthday(), business.getProfilePicture(), roleConverter.toRoles(business.getUserRoles()), business.getPasswordHash());
+            user = factory.createBusinessAccount(business.getId(), business.getFirstName(), business.getLastName(), business.getPhoneNumber(), business.getEmailAddress(), business.getBirthday(), business.getProfilePicture(), roleConverter.toRoles(business.getUserRoles()), business.getPasswordHash());
         }
         else {return null;}
 

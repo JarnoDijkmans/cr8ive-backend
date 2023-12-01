@@ -54,15 +54,3 @@ public class PostRepositoryImpl implements IPostRepository {
 
 
 
-
-
-
-//    private List<Hashtags> findHashtagsById(List<Integer> hashtagIds) {
-//        return hashtagIds.stream()
-//                .map(id -> hashtagsRepository.findById(id))
-//                .filter(Optional::isPresent)
-//                .map(Optional::get)
-//                .map(HashtagConverter::toHashtag)
-//                .filter(Objects::nonNull)
-//                .toList();
-//    }

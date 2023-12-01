@@ -28,7 +28,7 @@ public class StorageService {
         this.fileStorageProperties = fileStorageProperties;
     }
 
-    public void store(MultipartFile file, Long postId, String fileName) {
+    public void store(MultipartFile file, Long postId) {
         try {
             if (file.isEmpty()) {
                 throw new RuntimeException("Failed to store empty file " + file.getOriginalFilename());
@@ -42,7 +42,7 @@ public class StorageService {
                 Files.createDirectories(postFolder);
             }
 
-            Files.copy(file.getInputStream(), postFolder.resolve(fileName));
+            Files.copy(file.getInputStream(), postFolder.resolve(Objects.requireNonNull(file.getOriginalFilename())));
         } catch (IOException e) {
             throw new RuntimeException("Failed to store file " + file.getOriginalFilename(), e);
         }

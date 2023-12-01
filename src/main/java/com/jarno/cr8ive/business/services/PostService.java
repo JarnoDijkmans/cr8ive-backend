@@ -37,7 +37,7 @@ public class PostService implements IPostService {
 
             if (result != 0) {
                 for (MultipartFile file : requestModel.getContent()) {
-                    storageService.store(file, result, file.getOriginalFilename());
+                    storageService.store(file, result);
                 }
             } else {
                 throw new PostCustomException("something went wrong with creation");

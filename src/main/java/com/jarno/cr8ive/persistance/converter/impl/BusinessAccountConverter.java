@@ -4,6 +4,8 @@ import com.jarno.cr8ive.persistance.repository_impl.entity.BusinessAccountJpaMap
 import com.jarno.cr8ive.persistance.repository_impl.entity.UserJpaMapper;
 
 public class BusinessAccountConverter {
+
+    private BusinessAccountConverter(){}
     public static BusinessAccountJpaMapper toUserJpaMapper (UserJpaMapper user){
         return new BusinessAccountJpaMapper(
                 user.getId(),
