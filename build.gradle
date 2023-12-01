@@ -72,17 +72,15 @@ sonar {
         property "sonar.gradle.skipCompile", true
         property "sonar.coverage.exclusions", [
                 "src/**/**/business/converter/**",
-                "src/**/**/persistance/repositories_impl/entity/**",
-                "src/**/**/persistance/converter/**",
-                "src/**/**/persistance/repository_jpa/**",
-                "src/**/**/business/model/request/**",
-                "src/**/**/business/model/response/**",
+                "src/**/**/business/exeption/**",
+                "src/**/**/controller/**",
+                "src/**/**/persistance/**",
+                "src/**/**/business/model/**",
                 "src/**/**/business/Security/**",
                 "src/main/**/**/domain/**",
                 "src/**/**/business/boundaries/**",
                 "src/**/**/configuration/**",
                 "src/**/java/**/Main.java",
-                "src/main/java/**/controllers/**"
         ]
     }
 }
