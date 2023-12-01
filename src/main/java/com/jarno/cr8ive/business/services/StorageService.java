@@ -68,7 +68,7 @@ public class StorageService {
             Files.copy(file.getInputStream(), userFolder.resolve(Objects.requireNonNull(file.getOriginalFilename())));
 
         } catch (IOException e) {
-            throw new RuntimeException("Failed to store file " + file.getOriginalFilename(), e);
+            throw new RuntimeException("Failed to store file " + Objects.requireNonNull(file).getOriginalFilename(), e);
         }
     }
 }

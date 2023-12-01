@@ -70,18 +70,8 @@ sonar {
         property "sonar.host.url", "http://localhost:9000"
         property "sonar.qualitygate.wait", true
         property "sonar.gradle.skipCompile", true
-        property "sonar.coverage.exclusions", [
-                "src/**/**/business/Converters/**",
-                "src/**/**/business/Entities/**",
-                "src/**/**/business/Requests/**",
-                "src/**/**/business/Responses/**",
-                "src/**/**/business/Security/**",
-                "src/main/**/**/domain/**",
-                "src/**/**/business/*Repository",
-                "src/**/**/configuration/**",
-                "src/**/java/**/Main.java",
-                "src/main/java/**/business/entities/**",
-                "src/main/java/**/controllers/**"
+        property "sonar.inclusions", [
+                "src/*//business/*"
         ]
     }
 }

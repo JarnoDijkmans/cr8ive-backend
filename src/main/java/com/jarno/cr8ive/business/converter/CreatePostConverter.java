@@ -10,6 +10,8 @@ import java.util.Date;
 import java.util.List;
 
 public class CreatePostConverter {
+
+    private CreatePostConverter (){}
     public static Post toPost(CreatePostRequestModel requestModel) {
         List<Content> files = new ArrayList<>();
 
