@@ -20,11 +20,11 @@ public class UserRepositoryImpl implements IUserRepository {
 
     @Override
     @Transactional
-    public long save (IUser user){
+    public IUser save (IUser user){
         UserJpaMapper userJpaMapper = userConverter.toUserJpaMapper(user);
         userJpaMapper.getUserRoles().forEach(roles -> roles.setUser(userJpaMapper));
         repository.save(userJpaMapper);
-        return userJpaMapper.getId();
+        return userConverter.toUser(userJpaMapper);
     }
 
     @Override
@@ -47,4 +47,6 @@ public class UserRepositoryImpl implements IUserRepository {
         UserJpaMapper userJpa = repository.findUserById(id);
         return userConverter.toUser(userJpa);
     }
+
+    public boolean existsByEmailAddress(String emailAddress){return repository.existsByEmailAddress(emailAddress);}
 }

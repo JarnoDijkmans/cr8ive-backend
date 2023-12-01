@@ -1,13 +1,11 @@
 package com.jarno.cr8ive.business.model.response.post;
 
-import com.jarno.cr8ive.domain.Content;
-import com.jarno.cr8ive.domain.Hashtags;
+import com.jarno.cr8ive.domain.Post;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -15,13 +13,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetUserPostsResponseModel {
-    private long id;
-    private List<Content> content;
-    private String description;
-    private Date creationDate;
-    private long likes;
-    private long shareCount;
-    //private long comments;
-    private List<Hashtags> hashtags;
-    private long userId;
+    private List<Post> post;
 }

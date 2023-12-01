@@ -2,7 +2,6 @@ package com.jarno.cr8ive.persistance.repository_impl.mysql;
 
 import com.jarno.cr8ive.business.boundaries.repository.IPostRepository;
 import com.jarno.cr8ive.domain.Content;
-import com.jarno.cr8ive.domain.Hashtags;
 import com.jarno.cr8ive.domain.Post;
 import com.jarno.cr8ive.persistance.repository_impl.entity.PostJpaMapper;
 import com.jarno.cr8ive.persistance.repository_jpa.JpaHashtagRepository;
@@ -17,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -87,23 +85,7 @@ class PostRepositoryImplTest {
     }
 
     @Test
-    void testFindHashtagsById() {
-        // Arrange
-        List<Integer> hashtagIds = new ArrayList<>();
-        hashtagIds.add(1);
-
-        // Act
-        when(hashtagRepository.findById(anyInt())).thenReturn(Optional.empty());
-
-        List<Hashtags> hashtags = postGateway.findHashtagsById(hashtagIds);
-
-        // Assert
-        assertEquals(0, hashtags.size());
-        verify(hashtagRepository, times(1)).findById(anyInt());
-    }
-
-    @Test
-    void testExistsById() {
+    void testExistsById_ReturnsTrue_WhenIdAlreadyExists() {
         // Arrange
         String id = "1";
 

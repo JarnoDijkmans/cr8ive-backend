@@ -6,11 +6,9 @@ import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Collections;
 import java.util.List;
 
 
@@ -32,14 +30,8 @@ public class PostController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<List<GetUserPostsResponseModel>> getPostsByUserId(@PathVariable("id") long userId) throws PostCustomException {
-        List<GetUserPostsResponseModel> userPosts = this.service.findByUserId(userId);
-
-        if (userPosts == null || userPosts.isEmpty()) {
-            return ResponseEntity.ok(Collections.emptyList());
-        }
-
-        return ResponseEntity.ok(userPosts);
+    public GetUserPostsResponseModel getPostsByUserId(@PathVariable("id") long userId) throws PostCustomException {
+        return this.service.findByUserId(userId);
     }
 
 }

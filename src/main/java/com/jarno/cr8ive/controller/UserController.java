@@ -24,7 +24,7 @@ public class UserController {
 
     @PostMapping("/register")
     public CreateUserResponseModel createPersonalAccount (@RequestPart(required = false) MultipartFile profilePicture, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("emailAddress") String emailAddress, @RequestParam("birthdate") String birthdate, @RequestParam("password") String password) throws UserCustomException {
-        CreatePersonalUserRequestModel requestModel = new CreatePersonalUserRequestModel(firstName, lastName, emailAddress, birthdate, profilePicture, password);
+        CreatePersonalUserRequestModel requestModel = new CreatePersonalUserRequestModel(firstName, lastName, emailAddress, birthdate, password, profilePicture);
         return this.service.createPersonalAccount(requestModel);
     }
 

@@ -1,6 +1,7 @@
 package com.jarno.cr8ive.business.services;
 
 import com.jarno.cr8ive.configuration.FileStorageProperties;
+import com.jarno.cr8ive.domain.user.IUser;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
@@ -47,7 +48,7 @@ public class StorageService {
         }
     }
 
-    public void storeUserProfilePicture(long id, MultipartFile file){
+    public void storeUserProfilePicture(IUser user, MultipartFile file){
         try {
             if (file == null) {
                 String baseDir = fileStorageProperties.getUploadDir();
@@ -59,7 +60,7 @@ public class StorageService {
 
             String baseDir = fileStorageProperties.getUploadDir();
             Path postsFolder = Paths.get(baseDir, "users");
-            Path userFolder = postsFolder.resolve("UserId_" + id);
+            Path userFolder = postsFolder.resolve("UserId_" + user.getId());
 
             if (!Files.exists(userFolder)) {
                 Files.createDirectories(userFolder);

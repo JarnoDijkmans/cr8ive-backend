@@ -56,7 +56,7 @@ class PostServiceTest {
 
 
     @Test
-     void testCreatePost_Fail_ContentInvalid() {
+     void testCreatePost_Fail_ContentInvalid_NoFiles() {
         // ARRANGE
         List<MultipartFile> contentList = new ArrayList<>();
         List<Integer> hashtagIds = new ArrayList<>();

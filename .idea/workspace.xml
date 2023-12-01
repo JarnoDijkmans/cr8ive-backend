@@ -4,50 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="WebSecurity implemented, Big update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/impl/BusinessAccountConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/impl/PersonalAccountConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaBusinessAccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaPersonalAccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V7__Update_User_Tables.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V8__Update_User_Tables-Back.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V9__Update_User_Tables_Again.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/199b6f00d8dbdb1f5d46d5e3b75afccdd9effeb7" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/199b6f00d8dbdb1f5d46d5e3b75afccdd9effeb7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/8/38f8ef90d966f9c2c068647b628d1f47347f0522" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/8/38f8ef90d966f9c2c068647b628d1f47347f0522" afterDir="false" />
+    <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="Updated user table, personalAccount and BusinessAccount">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/06c0d8d058326f8d4ce4b89372b4a13daa713c8b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/1/11791f328ebd37984ff0ba01901f1a70b01c31bb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/6054820ba734f09bf874804890b4915a575b7a80" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/6054820ba734f09bf874804890b4915a575b7a80" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9b11583a8d8dcaa56e6961e4d94a30486486b56b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9b11583a8d8dcaa56e6961e4d94a30486486b56b" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9b940e88cacc09042ca59579e10a6ac0e59450b0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9b940e88cacc09042ca59579e10a6ac0e59450b0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9ba39f5a34f097393976a3bcb5757c149b501cea" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9ba39f5a34f097393976a3bcb5757c149b501cea" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/4/c4905e7c8767835ed25c9f221a32806b205d204a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/4/c4905e7c8767835ed25c9f221a32806b205d204a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/7/a71b237e32a548fc0ddf335f198948bb9ee5d855" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/7/a71b237e32a548fc0ddf335f198948bb9ee5d855" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/1/d17470985cf43e191f74ddaf0c2bb1013ae7f298" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/1/d17470985cf43e191f74ddaf0c2bb1013ae7f298" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/eaa3ce70711a0a400f5035fd5d8d428aa06bda69" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/eaa3ce70711a0a400f5035fd5d8d428aa06bda69" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/6/06c0d8d058326f8d4ce4b89372b4a13daa713c8b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/1/11791f328ebd37984ff0ba01901f1a70b01c31bb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/repository/IPostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/repository/IPostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/repository/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/services/IPostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/services/IPostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/converter/GetPostByUserIdConverter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/exeption/IUserExistsGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/exeption/IUserExistsGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/user/CreateBusinessRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/user/CreateBusinessRequestModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/user/CreatePersonalUserRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/user/CreatePersonalUserRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/user/CreateUserRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/user/CreateUserRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/post/CreateUserResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/post/CreateUserResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/post/GetUserPostsResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/post/GetUserPostsResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/StorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/auth/AuthenticationRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/auth/AuthenticationRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/token/AccessToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/token/AccessToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/token/impl/AccessTokenEncoderDecoderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/token/impl/AccessTokenEncoderDecoderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/token/impl/AccessTokenImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/token/impl/AccessTokenImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/PostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/IUserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/IUserFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/impl/UserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/impl/UserFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/user/IUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/user/IUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/user/impl/BusinessAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/user/impl/BusinessAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/user/impl/PersonalAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/user/impl/PersonalAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/UserConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/UserConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/impl/UserConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/impl/UserConverterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/BusinessAccountJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/BusinessAccountJpaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/PersonalAccountJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/PersonalAccountJpaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/UserJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/UserJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/UserRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_10/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_16/Sculpting.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_18/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_20/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_22/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_25/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_41/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_42/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_48/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_5/pngtree-man-wearing-glasses-is-wearing-colorful-background-image_2905240.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_50/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_52/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_54/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_59/default-image-url.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/users/UserId_9/default-image-url.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,16 +159,100 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Main">
-    <configuration name="generated-requests | #15" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="15" requestIdentifier="#15" runType="Run single request">
+    <configuration name="UserServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.jarno.cr8ive.business.services.UserServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests | #16" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="16" requestIdentifier="#16" runType="Run single request">
+    <configuration name="UserServiceTest.testCreatePersonalAccount" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.jarno.cr8ive.business.services.UserServiceTest.testCreatePersonalAccount&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests | #17" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="17" requestIdentifier="#17" runType="Run single request">
+    <configuration name="UserServiceTest.testCreatePersonalAccount_Successfully" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.jarno.cr8ive.business.services.UserServiceTest.testCreatePersonalAccount_Successfully&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests | #18" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="18" requestIdentifier="#18" runType="Run single request">
+    <configuration name="UserServiceTest.testCreatePersonalAccount_ThrowsException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.jarno.cr8ive.business.services.UserServiceTest.testCreatePersonalAccount_ThrowsException&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="Cr8iveApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -188,10 +278,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Main" />
-        <item itemvalue="HTTP Request.generated-requests | #15" />
-        <item itemvalue="HTTP Request.generated-requests | #16" />
-        <item itemvalue="HTTP Request.generated-requests | #17" />
-        <item itemvalue="HTTP Request.generated-requests | #18" />
+        <item itemvalue="Gradle.UserServiceTest.testCreatePersonalAccount_Successfully" />
+        <item itemvalue="Gradle.UserServiceTest.testCreatePersonalAccount_ThrowsException" />
+        <item itemvalue="Gradle.UserServiceTest.testCreatePersonalAccount" />
+        <item itemvalue="Gradle.UserServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +386,16 @@
       <workItem from="1700998625460" duration="1511000" />
       <workItem from="1701014361651" duration="6218000" />
       <workItem from="1701074512871" duration="17744000" />
-      <workItem from="1701101521439" duration="5141000" />
+      <workItem from="1701101521439" duration="5260000" />
+      <workItem from="1701178453498" duration="5330000" />
+      <workItem from="1701187210555" duration="27000" />
+      <workItem from="1701196908840" duration="5735000" />
+      <workItem from="1701244905930" duration="6506000" />
+      <workItem from="1701270003743" duration="816000" />
+      <workItem from="1701272663041" duration="603000" />
+      <workItem from="1701349699741" duration="2405000" />
+      <workItem from="1701421384229" duration="615000" />
+      <workItem from="1701426522186" duration="2642000" />
     </task>
     <task id="LOCAL-00001" summary="New application">
       <option name="closed" value="true" />
@@ -426,7 +525,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700642012615</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Updated user table, personalAccount and BusinessAccount">
+      <option name="closed" value="true" />
+      <created>1701107113873</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701107113873</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +560,8 @@
     <MESSAGE value="Sonarqube" />
     <MESSAGE value="Changed folder structure" />
     <MESSAGE value="WebSecurity implemented, Big update" />
-    <option name="LAST_COMMIT_MESSAGE" value="WebSecurity implemented, Big update" />
+    <MESSAGE value="Updated user table, personalAccount and BusinessAccount" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated user table, personalAccount and BusinessAccount" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -466,11 +574,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/controller/register/UserController.java</url>
           <line>21</line>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/LoginService.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistence/JpaUserRepository.java</url>
@@ -489,15 +592,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/PostController.java</url>
-          <line>28</line>
-          <properties class="com.jarno.cr8ive.controller.PostController" method="create">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

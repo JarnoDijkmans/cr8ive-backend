@@ -16,4 +16,5 @@ public interface JpaUserRepository extends JpaRepository <UserJpaMapper, Long> {
     UserJpaMapper findUserByEmailAddress (String emailAddress);
 
     UserJpaMapper findUserById(long id);
+    boolean existsByEmailAddress (String emailAddress);
 }

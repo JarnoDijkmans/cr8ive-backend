@@ -32,7 +32,11 @@ public class UserService implements IUserService {
     @Override
     public CreateUserResponseModel createPersonalAccount (CreateUserRequestModel requestModel) throws UserCustomException {
 
-        long result;
+        if (repo.existsByEmailAddress(requestModel.getEmailAddress()))
+        {
+            throw new UserCustomException("EmailAddress Already exists");
+        }
+        IUser user;
         try {
             String salt = BCrypt.gensalt();
             String hashedPassword = BCrypt.hashpw(requestModel.getPassword(), salt);
@@ -50,7 +54,6 @@ public class UserService implements IUserService {
             else {
                 filename = "default-image-url.png";
             }
-            IUser user;
             if (requestModel instanceof CreatePersonalUserRequestModel personalRequestModel){
                 user = factory.CreatePersonalAccount(0, personalRequestModel.getFirstName(), personalRequestModel.getLastName(), personalRequestModel.getEmailAddress(), personalRequestModel.getBirthday(), filename, userRoles, hashedPassword);
             }else if (requestModel instanceof CreateBusinessRequestModel businessRequestModel){
@@ -59,14 +62,14 @@ public class UserService implements IUserService {
             else {
                 throw new UserCustomException("Something went wrong");
             }
-            result = repo.save(user);
-            if (result != 0) {
-                storageService.storeUserProfilePicture(result, requestModel.getProfilePicture());
+            user = repo.save(user);
+            if (user != null) {
+                storageService.storeUserProfilePicture(user, requestModel.getProfilePicture());
             }
         } catch (Exception e){
-            throw e;
+            throw new UserCustomException("Save is unsuccessful");
         }
-        return new CreateUserResponseModel(result);
+        return new CreateUserResponseModel(user);
     }
 
     @Override

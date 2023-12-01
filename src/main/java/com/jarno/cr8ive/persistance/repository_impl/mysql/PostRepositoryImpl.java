@@ -1,11 +1,9 @@
 package com.jarno.cr8ive.persistance.repository_impl.mysql;
 
 import com.jarno.cr8ive.business.boundaries.repository.IPostRepository;
-import com.jarno.cr8ive.domain.Hashtags;
 import com.jarno.cr8ive.domain.Post;
 import com.jarno.cr8ive.persistance.converter.CreatePostConverter;
 import com.jarno.cr8ive.persistance.converter.GetPostByUserIdConverter;
-import com.jarno.cr8ive.persistance.converter.HashtagConverter;
 import com.jarno.cr8ive.persistance.repository_impl.entity.HashtagJpaMapper;
 import com.jarno.cr8ive.persistance.repository_impl.entity.PostJpaMapper;
 import com.jarno.cr8ive.persistance.repository_jpa.JpaHashtagRepository;
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -50,16 +47,22 @@ public class PostRepositoryImpl implements IPostRepository {
         List<PostJpaMapper> postsJpa = repository.findByUserId(userId);
         return GetPostByUserIdConverter.toPosts(postsJpa);
     }
-    public List<Hashtags> findHashtagsById(List<Integer> hashtagIds) {
-        return hashtagIds.stream()
-                .map(id -> hashtagsRepository.findById(id))
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .map(HashtagConverter::toHashtag)
-                .filter(Objects::nonNull)
-                .toList();
-    }
 
     @Override
     public boolean existsById(String id) {return repository.existsById(id);}
 }
+
+
+
+
+
+
+//    private List<Hashtags> findHashtagsById(List<Integer> hashtagIds) {
+//        return hashtagIds.stream()
+//                .map(id -> hashtagsRepository.findById(id))
+//                .filter(Optional::isPresent)
+//                .map(Optional::get)
+//                .map(HashtagConverter::toHashtag)
+//                .filter(Objects::nonNull)
+//                .toList();
+//    }

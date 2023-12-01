@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 @NoArgsConstructor
 public class CreatePersonalUserRequestModel extends CreateUserRequestModel {
 
-    public CreatePersonalUserRequestModel(String firstName, String lastName, String emailAddress, String birthdate, MultipartFile profilePicture, String passwordHash){
+    public CreatePersonalUserRequestModel(String firstName, String lastName, String emailAddress, String birthdate, String passwordHash, MultipartFile profilePicture){
         super(firstName, lastName, emailAddress, birthdate, passwordHash, profilePicture);
     }
 }

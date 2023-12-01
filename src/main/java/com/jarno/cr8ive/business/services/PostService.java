@@ -1,20 +1,17 @@
 package com.jarno.cr8ive.business.services;
 
-import com.jarno.cr8ive.business.boundaries.services.IPostService;
 import com.jarno.cr8ive.business.boundaries.repository.IPostRepository;
+import com.jarno.cr8ive.business.boundaries.services.IPostService;
 import com.jarno.cr8ive.business.converter.CreatePostConverter;
-import com.jarno.cr8ive.business.converter.GetPostByUserIdConverter;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
-import com.jarno.cr8ive.domain.Hashtags;
 import com.jarno.cr8ive.domain.Post;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -53,20 +50,10 @@ public class PostService implements IPostService {
     }
 
     @Override
-    public List<GetUserPostsResponseModel> findByUserId (long userId) throws PostCustomException{
-
-        List<GetUserPostsResponseModel> responseForUser = new ArrayList<>();
-
+    public GetUserPostsResponseModel findByUserId (long userId) throws PostCustomException{
         try {
-            List<Post> posts = repo.findByUserId(userId);
-
-            for (Post post : posts) {
-                if (post.getContent() != null) {
-                    List<Hashtags> hashtagsForPost = repo.findHashtagsById(post.getHashtagIds());
-                    responseForUser.add(GetPostByUserIdConverter.toResponseModel(post, hashtagsForPost));
-                }
-            }
-            return responseForUser;
+            List <Post> posts = repo.findByUserId(userId);
+            return new GetUserPostsResponseModel(posts);
         }
         catch (Exception e){
             throw new PostCustomException("Retrieval was unsuccessful");
