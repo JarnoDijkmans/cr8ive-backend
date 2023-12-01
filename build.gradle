@@ -61,8 +61,27 @@ jacocoTestReport {
         xml.required = true
     }
 }
-test.finalizedBy jacocoTestReport
 
-tasks.named('sonar').configure {
-    dependsOn test
+sonar {
+    properties {
+        property "sonar.projectKey", "creative"
+        property "sonar.projectName", "creative"
+        property "sonar.token", "sqb_1ea642441d8db44da4313794ff29842a922e1501"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.qualitygate.wait", true
+        property "sonar.gradle.skipCompile", true
+        property "sonar.coverage.exclusions", [
+                "src/**/**/business/Converters/**",
+                "src/**/**/business/Entities/**",
+                "src/**/**/business/Requests/**",
+                "src/**/**/business/Responses/**",
+                "src/**/**/business/Security/**",
+                "src/main/**/**/domain/**",
+                "src/**/**/business/*Repository",
+                "src/**/**/configuration/**",
+                "src/**/java/**/Main.java",
+                "src/main/java/**/business/entities/**",
+                "src/main/java/**/controllers/**"
+        ]
+    }
 }
