@@ -7,7 +7,6 @@
     <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="SonarQube">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/post/CreatePostRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/post/CreatePostRequestModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +348,7 @@
       <workItem from="1701272663041" duration="603000" />
       <workItem from="1701349699741" duration="2405000" />
       <workItem from="1701421384229" duration="615000" />
-      <workItem from="1701426522186" duration="5819000" />
+      <workItem from="1701426522186" duration="6228000" />
     </task>
     <task id="LOCAL-00001" summary="New application">
       <option name="closed" value="true" />

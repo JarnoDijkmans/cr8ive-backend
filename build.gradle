@@ -71,8 +71,8 @@ sonar {
         property "sonar.qualitygate.wait", true
         property "sonar.gradle.skipCompile", true
         property "sonar.inclusions", [
-                "src/*//business/services/*",
-                "src/*//test/*"
+                "**/business/services/**",
+                "**/test/**"
         ]
     }
 }
