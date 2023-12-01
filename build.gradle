@@ -70,9 +70,19 @@ sonar {
         property "sonar.host.url", "http://localhost:9000"
         property "sonar.qualitygate.wait", true
         property "sonar.gradle.skipCompile", true
-        property "sonar.coverage.inclusions", [
-                "**/business/services/**",
-                "**/test/**"
+        property "sonar.coverage.exclusions", [
+                "src/**/**/business/converter/**",
+                "src/**/**/persistance/repositories_impl/entity/**",
+                "src/**/**/persistance/converter/**",
+                "src/**/**/persistance/repository_jpa/**",
+                "src/**/**/business/model/request/**",
+                "src/**/**/business/model/response/**",
+                "src/**/**/business/Security/**",
+                "src/main/**/**/domain/**",
+                "src/**/**/business/boundaries/**",
+                "src/**/**/configuration/**",
+                "src/**/java/**/Main.java",
+                "src/main/java/**/controllers/**"
         ]
     }
 }
