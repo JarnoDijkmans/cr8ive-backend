@@ -28,8 +28,6 @@ t
 Dsrc/main/java/com/jarno/cr8ive/business/services/StorageService.java,9\b\9b11583a8d8dcaa56e6961e4d94a30486486b56b
 z
 Jsrc/main/java/com/jarno/cr8ive/business/converter/CreatePostConverter.java,2\e\2efa4e04e6ace6f7bcc5ee44dcf76087d160b164
-z
-Jsrc/main/java/com/jarno/cr8ive/business/converter/CreateUserConverter.java,4\3\4347eac4d2035943cd22f7622d54bd08b7f89b5a
 c
 3src/main/java/com/jarno/cr8ive/domain/Comments.java,c\2\c2526b050e68804167aa654fa062819ff4777ee0
 q
@@ -74,8 +72,6 @@ Q.idea/sonarlint/securityhotspotstore/6/c/6cad53f3fab49597c2bd22a212d0fed9fe28dc
 Q.idea/sonarlint/securityhotspotstore/5/8/587d266bb27a4dc3022bbed44dfa19849df3044c,7\5\750a780b15e198971916638f6b9d384faec89c51
 Å
 Q.idea/sonarlint/securityhotspotstore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9,1\e\1e45613b6060de813dc92caeb118e08a2124bc35
-Å
-Q.idea/sonarlint/securityhotspotstore/4/3/4347eac4d2035943cd22f7622d54bd08b7f89b5a,2\6\26d18f3fc72e336aca360a9934b180b4a22e2d2c
 Å
 Q.idea/sonarlint/securityhotspotstore/3/f/3f7486fc76d108a1d7b8d6e3847b11c24b9f248f,0\f\0fa5897aa9e6581999b8ff129d6a79624b4c9ffd
 Å
@@ -876,3 +872,7 @@ Q.idea/sonarlint/securityhotspotstore/0/b/0b7c147c5cad7db9629d0783f6cee6a8eb47fa
 Xsrc/main/java/com/jarno/cr8ive/business/model/response/post/CreateUserResponseModel.java,3\c\3c7e69bf83e45fb7571214eb4d224837d51c745d
 u
 Esrc/test/java/com/jarno/cr8ive/business/services/UserServiceTest.java,f\f\ff43ce158f99a87944aef22c1c9d9de228e336c6
+v
+Fsrc/test/java/com/jarno/cr8ive/business/services/LoginServiceTest.java,f\d\fd6d48f32c929ad09714d2113030dc67140847b9
+x
+Hsrc/test/java/com/jarno/cr8ive/business/services/StorageServiceTest.java,6\1\6108dd93550c8bd8d3aff3f96f9b181c7c924d84
