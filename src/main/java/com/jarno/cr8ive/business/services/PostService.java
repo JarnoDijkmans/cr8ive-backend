@@ -6,6 +6,7 @@ import com.jarno.cr8ive.business.converter.CreatePostConverter;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
+import com.jarno.cr8ive.business.model.response.post.GetPostByPostIdResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
 import com.jarno.cr8ive.domain.Post;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @AllArgsConstructor
@@ -58,5 +60,37 @@ public class PostService implements IPostService {
         catch (Exception e){
             throw new PostCustomException("Retrieval was unsuccessful");
         }
+    }
+
+    @Override
+    public void deleteUserPost(long postId) throws PostCustomException {
+        try {
+            repo.deletePost(postId);
+        } catch (Exception e) {
+            throw new PostCustomException("Something went wrong, Please try again.");
+        }
+    }
+
+    @Override
+    public GetPostByPostIdResponseModel findByPostId(long postId) throws PostCustomException{
+        try {
+            Optional<Post> postOptional = repo.findByPostId(postId);
+            return new GetPostByPostIdResponseModel(postOptional);
+        }
+        catch (Exception e){
+            throw new PostCustomException("Retrieval was unsuccessful");
+        }
+    }
+
+    @Override
+    public boolean userOwnsPost (long postId, long userId){
+        Optional<Post> postOptional = repo.findByPostId(postId);
+
+        if (postOptional.isPresent()) {
+            Post post = postOptional.get();
+            return post.getUserId() == userId;
+        }
+
+        return false;
     }
 }

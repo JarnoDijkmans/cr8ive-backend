@@ -32,7 +32,7 @@ public class UserRepositoryImpl implements IUserRepository {
 
     @Override
     public List<IUser> getUsersByName(String name){
-        List<UserJpaMapper> users = repository.findUsersByName(name);
+        List<UserJpaMapper> users = repository.findUsersByNameExcludingMaintainers(name);
         return userConverter.toUserList(users);
     }
 

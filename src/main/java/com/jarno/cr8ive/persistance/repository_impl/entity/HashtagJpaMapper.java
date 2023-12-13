@@ -9,6 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "hashtag")
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

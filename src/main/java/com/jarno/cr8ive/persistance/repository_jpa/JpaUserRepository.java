@@ -10,8 +10,10 @@ import java.util.List;
 
 @Repository
 public interface JpaUserRepository extends JpaRepository <UserJpaMapper, Long> {
-    @Query("SELECT u FROM UserJpaMapper u WHERE LOWER(u.firstName) LIKE LOWER(CONCAT('%', :name, '%'))")
-    List<UserJpaMapper> findUsersByName(@Param("name") String name);
+    @Query("SELECT DISTINCT u FROM UserJpaMapper u JOIN u.userRoles r " +
+            "WHERE LOWER(u.firstName) LIKE LOWER(CONCAT('%', :name, '%')) " +
+            "AND r.role <> 'MAINTAINER'")
+    List<UserJpaMapper> findUsersByNameExcludingMaintainers(@Param("name") String name);
 
     UserJpaMapper findUserByEmailAddress (String emailAddress);
 

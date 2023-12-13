@@ -20,4 +20,4 @@ test:
 sonarqube:
   stage: sonarqube
   script:
-    - ./gradlew sonar
+    - ./gradlew test sonar

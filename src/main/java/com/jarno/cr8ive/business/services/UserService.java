@@ -16,6 +16,7 @@ import com.jarno.cr8ive.domain.user.IUser;
 import lombok.AllArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashSet;
 import java.util.List;
@@ -30,46 +31,69 @@ public class UserService implements IUserService {
     private StorageService storageService;
 
     @Override
-    public CreateUserResponseModel createAccount (CreateUserRequestModel requestModel) throws UserCustomException {
+    public CreateUserResponseModel createAccount(CreateUserRequestModel requestModel) throws UserCustomException {
+        validateEmailAddress(requestModel.getEmailAddress());
 
-        if (repo.existsByEmailAddress(requestModel.getEmailAddress()))
-        {
+        String hashedPassword = hashPassword(requestModel.getPassword());
+        Set<Roles> userRoles = createDefaultUserRole();
+
+        String filename = getProfilePictureFilename(requestModel);
+
+        IUser user = createUserAccount(requestModel, hashedPassword, userRoles, filename);
+
+        storeUserInformation(user, requestModel.getProfilePicture());
+
+        return new CreateUserResponseModel(user);
+    }
+
+    private void validateEmailAddress(String emailAddress) throws UserCustomException {
+        if (repo.existsByEmailAddress(emailAddress)) {
             throw new UserCustomException("EmailAddress Already exists");
         }
-        IUser user;
+    }
+
+    private String hashPassword(String password) {
+        String salt = BCrypt.gensalt();
+        return BCrypt.hashpw(password, salt);
+    }
+
+    private Set<Roles> createDefaultUserRole() {
+        Roles role = Roles.builder()
+                .role(RoleEnum.PERSONAL_ACCOUNT)
+                .build();
+        Set<Roles> userRoles = new HashSet<>();
+        userRoles.add(role);
+        return userRoles;
+    }
+
+    private String getProfilePictureFilename(CreateUserRequestModel requestModel) {
+        if (requestModel.getProfilePicture() != null) {
+            return requestModel.getProfilePicture().getOriginalFilename();
+        } else {
+            return "default-image-url.png";
+        }
+    }
+
+    private IUser createUserAccount(CreateUserRequestModel requestModel, String hashedPassword, Set<Roles> userRoles, String filename) throws UserCustomException {
         try {
-            String salt = BCrypt.gensalt();
-            String hashedPassword = BCrypt.hashpw(requestModel.getPassword(), salt);
-
-            Roles role = Roles.builder()
-                    .role(RoleEnum.PERSONAL_ACCOUNT)
-                    .build();
-            Set<Roles> userRoles = new HashSet<>();
-            userRoles.add(role);
-
-            String filename;
-            if (requestModel.getProfilePicture() != null){
-                filename = requestModel.getProfilePicture().getOriginalFilename();
-            }
-            else {
-                filename = "default-image-url.png";
-            }
-            if (requestModel instanceof CreatePersonalUserRequestModel personalRequestModel){
+            IUser user;
+            if (requestModel instanceof CreatePersonalUserRequestModel personalRequestModel) {
                 user = factory.createPersonalAccount(0, personalRequestModel.getFirstName(), personalRequestModel.getLastName(), personalRequestModel.getEmailAddress(), personalRequestModel.getBirthday(), filename, userRoles, hashedPassword);
-            }else if (requestModel instanceof CreateBusinessRequestModel businessRequestModel){
+            } else if (requestModel instanceof CreateBusinessRequestModel businessRequestModel) {
                 user = factory.createBusinessAccount(0, businessRequestModel.getFirstName(), businessRequestModel.getLastName(), businessRequestModel.getPhoneNumber(), businessRequestModel.getEmailAddress(), businessRequestModel.getBirthday(), filename, userRoles, hashedPassword);
-            }
-            else {
+            } else {
                 throw new UserCustomException("Something went wrong");
             }
-            user = repo.save(user);
-            if (user != null) {
-                storageService.storeUserProfilePicture(user, requestModel.getProfilePicture());
-            }
-        } catch (Exception e){
+            return repo.save(user);
+        } catch (Exception e) {
             throw new UserCustomException("Save is unsuccessful");
         }
-        return new CreateUserResponseModel(user);
+    }
+
+    private void storeUserInformation(IUser user, MultipartFile profilePicture) {
+        if (user != null) {
+            storageService.storeUserProfilePicture(user, profilePicture);
+        }
     }
 
     @Override
