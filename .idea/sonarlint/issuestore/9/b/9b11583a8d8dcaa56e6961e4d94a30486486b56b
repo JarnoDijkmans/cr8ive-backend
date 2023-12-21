@@ -1,4 +1,8 @@
 
-g	java:S112""FDefine and throw a dedicated exception instead of using a generic one.(ıÆÀ‘ıÿÿÿÿ8ó†¾“¿1
-b	java:S112/"FDefine and throw a dedicated exception instead of using a generic one.(« Á¥8ô†¾“¿1
-b	java:S112G"FDefine and throw a dedicated exception instead of using a generic one.(³®8ÿñìäÀ1
+g	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(ıÆÀ‘ıÿÿÿÿ8È§öšÆ1
+b	java:S1120"FDefine and throw a dedicated exception instead of using a generic one.(« Á¥8É§öšÆ1
+b	java:S112H"FDefine and throw a dedicated exception instead of using a generic one.(³®8Ë§öšÆ1
+b	java:S112X"FDefine and throw a dedicated exception instead of using a generic one.(âë“Á8û­ûšÆ1
+g	java:S112["FDefine and throw a dedicated exception instead of using a generic one.(ÿ•ïïşÿÿÿÿ8û­ûšÆ1
+a
+java:S2095S"DUse try-with-resources or close this "Stream" in a "finally" clause.(ÓÏç°8–ÍûšÆ1

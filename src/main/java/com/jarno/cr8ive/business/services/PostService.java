@@ -66,6 +66,7 @@ public class PostService implements IPostService {
     public void deleteUserPost(long postId) throws PostCustomException {
         try {
             repo.deletePost(postId);
+            storageService.deletePost(postId);
         } catch (Exception e) {
             throw new PostCustomException("Something went wrong, Please try again.");
         }

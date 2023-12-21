@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS messages (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    sender_id BIGINT NOT NULL,
+    receiver_id BIGINT NOT NULL,
+    content VARCHAR(255) NOT NULL,
+    timestamp TIMESTAMP NOT NULL
+);

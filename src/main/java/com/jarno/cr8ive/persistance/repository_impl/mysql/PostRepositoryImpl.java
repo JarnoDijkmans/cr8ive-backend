@@ -50,10 +50,14 @@ public class PostRepositoryImpl implements IPostRepository {
         Optional<PostJpaMapper> optionalPostJpaMapper = repository.findPostById(postId);
         return converter.toSingleOptionalPost(optionalPostJpaMapper);
     }
-    @Override
     @Transactional
-    public void deletePost (long postId){
-        repository.deleteById(postId);
+    public void deletePost(long postId) {
+        Optional<PostJpaMapper> postOptional = repository.findPostById(postId);
+        postOptional.ifPresent(post -> {
+            post.getHashtags().clear();
+            post.getPostContents().clear();
+            repository.deletePostById(postId);
+        });
     }
 
     private Set<HashtagJpaMapper> findHashtagsByIds(Post post){

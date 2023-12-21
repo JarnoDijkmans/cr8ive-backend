@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.Objects;
 
 @Service
@@ -69,6 +70,25 @@ public class StorageService {
 
         } catch (IOException e) {
             throw new RuntimeException("Failed to store file " + Objects.requireNonNull(file).getOriginalFilename(), e);
+        }
+    }
+
+    public void deletePost(long postId) {
+        try {
+            String baseDir = fileStorageProperties.getUploadDir();
+            Path postsFolder = Paths.get(baseDir, "posts");
+            Path postFolder = postsFolder.resolve("PostNumber_" + postId);
+
+            if (Files.exists(postFolder)) {
+                Files.walk(postFolder)
+                        .sorted(Comparator.reverseOrder())
+                        .map(Path::toFile)
+                        .forEach(File::delete);
+            } else {
+                throw new RuntimeException("Folder for postId " + postId + " does not exist");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to delete folder for postId " + postId, e);
         }
     }
 }

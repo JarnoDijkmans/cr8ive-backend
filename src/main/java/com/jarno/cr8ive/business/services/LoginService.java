@@ -41,6 +41,6 @@ public class LoginService implements ILoginService {
                 .toList();
 
         return accessTokenEncoder.encode(
-                new AccessTokenImpl(user.getFirstName() + user.getLastName(), userId, roles));
+                new AccessTokenImpl(user.getFirstName(), userId, roles));
     }
 }
