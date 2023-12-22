@@ -913,3 +913,7 @@ v
 Fsrc/main/java/com/jarno/cr8ive/controller/WebSocketChatController.java,a\a\aa8847bee166bf7278c8b6c188744244edadb76b
 j
 :src/main/java/com/jarno/cr8ive/controller/ChatMessage.java,9\5\95d7334cf5ef821196eba55fbcb44319240ca024
+u
+Esrc/test/java/com/jarno/cr8ive/business/services/ChatServiceTest.java,0\4\04b2c6109a305d33802acd981c79ad1239b4a3b1
+u
+Esrc/test/java/com/jarno/cr8ive/business/services/AuthServiceTest.java,6\a\6af9ebc4f3dd6c40e9ae58c8ff603a8738d14a6a

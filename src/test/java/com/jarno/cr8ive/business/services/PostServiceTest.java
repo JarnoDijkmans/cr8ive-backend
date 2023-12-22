@@ -4,12 +4,16 @@ import com.jarno.cr8ive.business.boundaries.repository.IPostRepository;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
+import com.jarno.cr8ive.business.model.response.post.GetPostByPostIdResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
 import com.jarno.cr8ive.domain.Content;
 import com.jarno.cr8ive.domain.Post;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,21 +22,23 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class PostServiceTest {
-
+    @InjectMocks
     private PostService postService;
-    private IPostRepository gateway;
+    @Mock
+    private IPostRepository gatewayMock;
 
+    @Mock
+    private StorageService storageServiceMock;
 
     @BeforeEach
-    public void setUp() {
-        gateway = Mockito.mock(IPostRepository.class);
-        StorageService storageService = Mockito.mock(StorageService.class);
-        postService = new PostService(gateway, storageService);
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
@@ -49,13 +55,13 @@ class PostServiceTest {
 
         CreatePostRequestModel requestModel = new CreatePostRequestModel(contentList, "This is a description", hashtagIds, 1);
         long expectedResult = 1L;
-        when(gateway.save(Mockito.any(Post.class))).thenReturn(expectedResult);
+        when(gatewayMock.save(Mockito.any(Post.class))).thenReturn(expectedResult);
 
         // ACT
         CreatePostResponseModel responseModel = postService.create(requestModel);
 
         // ASSERT
-        Mockito.verify(gateway).save(Mockito.any(Post.class));
+        verify(gatewayMock).save(Mockito.any(Post.class));
         assertEquals(expectedResult, responseModel.getId());
     }
 
@@ -105,7 +111,7 @@ class PostServiceTest {
         Post post = new Post(1, contentList ,"mock description", date, 0, 0, hashtagIds, userId );
         mockPosts.add(post);
 
-        when(gateway.findByUserId(userId)).thenReturn(mockPosts);
+        when(gatewayMock.findByUserId(userId)).thenReturn(mockPosts);
 
         // Calling the method to be tested
         GetUserPostsResponseModel response = postService.findByUserId(userId);
@@ -120,11 +126,64 @@ class PostServiceTest {
      void testFindByUserId_Exception() {
         // Mocking repository to throw an exception
         long userId = 123; // Replace with a valid user ID for your test
-        when(gateway.findByUserId(userId)).thenThrow(new RuntimeException("Simulated exception"));
+        when(gatewayMock.findByUserId(userId)).thenThrow(new RuntimeException("Simulated exception"));
 
         // Assertions for exception handling
         assertThrows(PostCustomException.class, () -> {
             postService.findByUserId(userId);
         });
     }
+
+    @Test
+    void testDeleteUserPost_Success() {
+        // ARRANGE
+        long postId = 1L;
+
+        doNothing().when(gatewayMock).deletePost(postId);
+        doNothing().when(storageServiceMock).deletePost(postId);
+
+        // ACT
+        assertDoesNotThrow(() -> postService.deleteUserPost(postId));
+
+        // ASSERT
+        verify(gatewayMock, times(1)).deletePost(postId);
+        verify(storageServiceMock, times(1)).deletePost(postId);
+    }
+
+    @Test
+    void testFindByPostId_Success() throws PostCustomException {
+        // ARRANGE
+        long postId = 1L;
+        Optional<Post> mockPost = Optional.of(new Post());
+        when(gatewayMock.findByPostId(postId)).thenReturn(mockPost);
+
+        // ACT
+        GetPostByPostIdResponseModel response = postService.findByPostId(postId);
+
+        // ASSERT
+        assertNotNull(response);
+    }
+
+    @Test
+    void testUserOwnsPost_Success() {
+        // ARRANGE
+        long postId = 1L;
+        long userId = 123L;
+
+        Post post = mock(Post.class);
+        when(post.getUserId()).thenReturn(userId);
+
+        Optional<Post> mockPost = Optional.of(post);
+        IPostRepository gatewayMock = mock(IPostRepository.class);
+        when(gatewayMock.findByPostId(postId)).thenReturn(mockPost);
+
+        // ACT
+        PostService postService = new PostService(gatewayMock, storageServiceMock);
+        boolean isUserOwner = postService.userOwnsPost(postId, userId);
+
+        // ASSERT
+        assertTrue(isUserOwner);
+    }
+
+
 }
