@@ -5,40 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="SonarQube">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/repository/IChatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/boundaries/services/IChatService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/chat/SaveMessageRequestModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/response/chat/MessagesResponseModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/ChatService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/ChatController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/ChatMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/WebSocketChatController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/ChatConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/impl/ChatConverterImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/MessageJpaMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/ChatRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaChatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V10__Create_Chat_Tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/1/6108dd93550c8bd8d3aff3f96f9b181c7c924d84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9b11583a8d8dcaa56e6961e4d94a30486486b56b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9b11583a8d8dcaa56e6961e4d94a30486486b56b" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/1/6108dd93550c8bd8d3aff3f96f9b181c7c924d84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/AuthServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/ChatServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/StorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/HashtagJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/HashtagJpaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaHashtagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaHashtagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaPostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaPostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/StorageServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/posts/PostNumber_3/employee3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/posts/PostNumber_9/Heavy-Duty-graafbak.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +114,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Main">
-    <configuration name="PostRepositoryImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AuthServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -157,7 +127,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.jarno.cr8ive.persistance.repository_impl.mysql.PostRepositoryImplTest&quot;" />
+            <option value="&quot;com.jarno.cr8ive.business.services.AuthServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -168,7 +138,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PostServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChatServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -181,7 +151,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest&quot;" />
+            <option value="&quot;com.jarno.cr8ive.business.services.ChatServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -192,7 +162,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="UserServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChatServiceTest.testGetMessagesBetweenUsers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -205,7 +175,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.jarno.cr8ive.business.services.UserServiceTest&quot;" />
+            <option value="&quot;com.jarno.cr8ive.business.services.ChatServiceTest.testGetMessagesBetweenUsers&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -216,48 +186,52 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="cr8ive-backend [jacocoTestReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChatServiceTest.testSaveMessage" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="jacocoTestReport" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.jarno.cr8ive.business.services.ChatServiceTest.testSaveMessage&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="cr8ive-backend [sonar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChatServiceTest.testSaveMessageThrowsException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="sonar" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.jarno.cr8ive.business.services.ChatServiceTest.testSaveMessageThrowsException&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="Cr8iveApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -276,11 +250,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.cr8ive-backend [sonar]" />
-        <item itemvalue="Gradle.cr8ive-backend [jacocoTestReport]" />
-        <item itemvalue="Gradle.PostRepositoryImplTest" />
-        <item itemvalue="Gradle.PostServiceTest" />
-        <item itemvalue="Gradle.UserServiceTest" />
+        <item itemvalue="Gradle.AuthServiceTest" />
+        <item itemvalue="Gradle.ChatServiceTest" />
+        <item itemvalue="Gradle.ChatServiceTest.testSaveMessageThrowsException" />
+        <item itemvalue="Gradle.ChatServiceTest.testGetMessagesBetweenUsers" />
+        <item itemvalue="Gradle.ChatServiceTest.testSaveMessage" />
       </list>
     </recent_temporary>
   </component>
@@ -415,6 +389,8 @@
       <workItem from="1702469008192" duration="5272000" />
       <workItem from="1703061189937" duration="30055000" />
       <workItem from="1703169101829" duration="38000" />
+      <workItem from="1703229532107" duration="2059000" />
+      <workItem from="1703247331762" duration="3156000" />
     </task>
     <task id="LOCAL-00001" summary="New application">
       <option name="closed" value="true" />

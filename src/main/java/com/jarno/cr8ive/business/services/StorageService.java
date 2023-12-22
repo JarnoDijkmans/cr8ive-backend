@@ -16,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 @Service
 public class StorageService {
@@ -74,16 +75,17 @@ public class StorageService {
     }
 
     public void deletePost(long postId) {
-        try {
-            String baseDir = fileStorageProperties.getUploadDir();
-            Path postsFolder = Paths.get(baseDir, "posts");
-            Path postFolder = postsFolder.resolve("PostNumber_" + postId);
+        String baseDir = fileStorageProperties.getUploadDir();
+        Path postsFolder = Paths.get(baseDir, "posts");
+        Path postFolder = postsFolder.resolve("PostNumber_" + postId);
 
+        try {
             if (Files.exists(postFolder)) {
-                Files.walk(postFolder)
-                        .sorted(Comparator.reverseOrder())
-                        .map(Path::toFile)
-                        .forEach(File::delete);
+                try (Stream<Path> pathStream = Files.walk(postFolder)) {
+                    pathStream.sorted(Comparator.reverseOrder())
+                            .map(Path::toFile)
+                            .forEach(File::delete);
+                }
             } else {
                 throw new RuntimeException("Folder for postId " + postId + " does not exist");
             }
