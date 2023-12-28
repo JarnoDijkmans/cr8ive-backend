@@ -116,6 +116,6 @@ public class UserService implements IUserService {
         } catch(Exception e){
             throw new UserCustomException("Problem with finding user");
         }
-        return new GetUserResponseModel(user);
+        return new GetUserResponseModel(user.getId(), user.getFirstName(), user.getLastName(), user.getProfilePicture());
     }
 }

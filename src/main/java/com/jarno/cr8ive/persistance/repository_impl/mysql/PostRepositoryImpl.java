@@ -8,6 +8,7 @@ import com.jarno.cr8ive.persistance.repository_impl.entity.PostJpaMapper;
 import com.jarno.cr8ive.persistance.repository_jpa.JpaHashtagRepository;
 import com.jarno.cr8ive.persistance.repository_jpa.JpaPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -68,6 +69,11 @@ public class PostRepositoryImpl implements IPostRepository {
                     .ifPresent(hashtagJpaMappers::add);
         }
         return hashtagJpaMappers;
+    }
+
+    public List<Post> findLatestPost (long userId){
+        List<PostJpaMapper> postJpaMappers = repository.findUnseenPosts(userId, PageRequest.of(0, 10));
+        return converter.toPosts(postJpaMappers);
     }
 }
 

@@ -2,9 +2,13 @@ package com.jarno.cr8ive.persistance.repository_impl.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -56,6 +60,8 @@ public class UserJpaMapper {
     private Set<RolesJpaMapper> userRoles;
     @Column(name = "password_hash")
     private String passwordHash;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<SeenPostsJpaMapper> seenPosts = new HashSet<>();
 
     public UserJpaMapper(long id, String firstName, String lastName, String emailAddress, String birthdate, String profilePicture, Set<RolesJpaMapper> roles, String passwordHash) {
         this.id = id;

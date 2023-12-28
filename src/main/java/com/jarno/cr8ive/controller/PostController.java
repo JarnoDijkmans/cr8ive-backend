@@ -66,6 +66,12 @@ public class PostController {
         }
     }
 
+
+    @GetMapping("/api/posts/forUser/{id}")
+    public GetUserPostsResponseModel getPostLatestPostsForUser(@PathVariable("id") long userId) throws PostCustomException {
+        return this.service.getLatestPost(userId);
+    }
+
     private String extractTokenFromAuthorizationHeader(String authorizationHeader) {
         return authorizationHeader.replaceFirst("Bearer ", "").trim();
     }

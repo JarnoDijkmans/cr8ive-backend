@@ -44,4 +44,5 @@ public class UserController {
     public GetUserResponseModel getUserById (@PathVariable("id") long id) throws UserCustomException {
         return this.service.getUserById(id);
     }
+
 }

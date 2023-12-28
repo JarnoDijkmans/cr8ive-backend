@@ -16,4 +16,5 @@ public interface IPostService {
     void deleteUserPost (long postId) throws PostCustomException;
 
     boolean userOwnsPost (long postId, long userId);
+    GetUserPostsResponseModel getLatestPost(long userId) throws PostCustomException;
 }

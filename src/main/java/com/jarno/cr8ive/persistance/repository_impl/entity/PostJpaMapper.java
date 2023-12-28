@@ -33,4 +33,6 @@ public class PostJpaMapper {
     )
     private Set<HashtagJpaMapper> hashtags = new HashSet<>();
     private long userId;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private Set<SeenPostsJpaMapper> seenByUsers = new HashSet<>();
 }

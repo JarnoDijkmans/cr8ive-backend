@@ -12,4 +12,6 @@ public interface IPostRepository extends IPostExistsGateway {
 
     Optional<Post> findByPostId (long postId);
     void deletePost (long postId);
+
+    List<Post> findLatestPost (long userId);
 }

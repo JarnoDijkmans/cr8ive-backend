@@ -95,4 +95,21 @@ public class PostService implements IPostService {
         return false;
     }
 
+    @Override
+    public GetUserPostsResponseModel getLatestPost(long userId) throws PostCustomException{
+        try {
+            List<Post> posts = repo.findLatestPost(userId);
+            if (posts != null){
+                return new GetUserPostsResponseModel(posts);
+            }
+            else {
+                //TODO
+                List<Post> alreadySeenPosts = repo.findByUserId(userId);
+                return new GetUserPostsResponseModel(alreadySeenPosts);
+            }
+        }catch (Exception e){
+            throw new PostCustomException("Retrieval was unsuccessful");
+        }
+    }
+
 }
