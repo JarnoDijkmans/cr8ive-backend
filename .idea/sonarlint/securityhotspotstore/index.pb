@@ -919,3 +919,5 @@ u
 Esrc/test/java/com/jarno/cr8ive/business/services/AuthServiceTest.java,6\a\6af9ebc4f3dd6c40e9ae58c8ff603a8738d14a6a
 ‰
 Ysrc/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/SeenPostsJpaMapper.java,0\4\0410bf8941bdb4e474d8da74a8fb20f4dc7c018d
+„
+Tsrc/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/LikeJpaMapper.java,c\9\c96513e93c598f85622d3d967bd9d62fa0d241ee

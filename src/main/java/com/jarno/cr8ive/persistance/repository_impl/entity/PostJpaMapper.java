@@ -23,7 +23,8 @@ public class PostJpaMapper {
     private String description;
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
-    private long likes;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private Set<LikeJpaMapper> likes = new HashSet<>();
     private long shareCount;
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
