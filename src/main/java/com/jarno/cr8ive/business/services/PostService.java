@@ -13,6 +13,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +24,7 @@ import java.util.Optional;
 public class PostService implements IPostService {
     private IPostRepository repo;
     private StorageService storageService;
+    private LikeService likeService;
 
 
     @Override
@@ -55,6 +58,7 @@ public class PostService implements IPostService {
     public GetUserPostsResponseModel findByUserId (long userId) throws PostCustomException{
         try {
             List <Post> posts = repo.findByUserId(userId);
+            likeService.getLikesForPosts(posts);
             return new GetUserPostsResponseModel(posts);
         }
         catch (Exception e){
@@ -76,6 +80,7 @@ public class PostService implements IPostService {
     public GetPostByPostIdResponseModel findByPostId(long postId) throws PostCustomException{
         try {
             Optional<Post> postOptional = repo.findByPostId(postId);
+            likeService.getLikesForOptionalPost(postOptional);
             return new GetPostByPostIdResponseModel(postOptional);
         }
         catch (Exception e){
@@ -100,6 +105,7 @@ public class PostService implements IPostService {
         try {
             List<Post> posts = repo.findLatestPost(userId);
             if (posts != null){
+                likeService.getLikesForPosts(posts);
                 return new GetUserPostsResponseModel(posts);
             }
             else {
@@ -111,5 +117,26 @@ public class PostService implements IPostService {
             throw new PostCustomException("Retrieval was unsuccessful");
         }
     }
+
+    @Override
+    public GetUserPostsResponseModel getTrendingPostsLastWeek() throws PostCustomException{
+        try{
+            Calendar calendar = Calendar.getInstance();
+            Date endDate = calendar.getTime(); // Current date
+
+            calendar.add(Calendar.DAY_OF_YEAR, -7); // Go back 7 days
+            Date startDate = calendar.getTime();
+
+            List<Post> posts = repo.getTrendingPostsLastWeek(startDate, endDate);
+            if (posts != null){
+                likeService.getLikesForPosts(posts);
+            }
+            return new GetUserPostsResponseModel(posts);
+        }catch (Exception e) {
+            throw new PostCustomException("Retrieval trending posts was unsuccessful");
+        }
+    }
+
+
 
 }

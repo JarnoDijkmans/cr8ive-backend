@@ -9,14 +9,11 @@ import com.jarno.cr8ive.persistance.repository_jpa.JpaHashtagRepository;
 import com.jarno.cr8ive.persistance.repository_jpa.JpaPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
+import java.util.*;
 
 
 @Repository
@@ -44,9 +41,6 @@ public class PostRepositoryImpl implements IPostRepository {
     }
 
     @Override
-    public boolean existsById(String id) {return repository.existsById(id);}
-
-    @Override
     public Optional<Post> findByPostId (long postId){
         Optional<PostJpaMapper> optionalPostJpaMapper = repository.findPostById(postId);
         return converter.toSingleOptionalPost(optionalPostJpaMapper);
@@ -71,8 +65,19 @@ public class PostRepositoryImpl implements IPostRepository {
         return hashtagJpaMappers;
     }
 
+    public long getLikeCount(long postId){
+        return repository.findLikeCountByPostId(postId);
+    }
+
     public List<Post> findLatestPost (long userId){
         List<PostJpaMapper> postJpaMappers = repository.findUnseenPosts(userId, PageRequest.of(0, 10));
+        return converter.toPosts(postJpaMappers);
+    }
+
+    public List<Post> getTrendingPostsLastWeek(Date startDate, Date endDate) {
+        Pageable pageable = PageRequest.of(0, 10);
+
+        List<PostJpaMapper> postJpaMappers = repository.findPostsInDateRange(startDate, endDate, pageable);
         return converter.toPosts(postJpaMappers);
     }
 }

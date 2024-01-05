@@ -67,9 +67,14 @@ public class PostController {
     }
 
 
-    @GetMapping("/api/posts/forUser/{id}")
+    @GetMapping("/api/forUser/{id}")
     public GetUserPostsResponseModel getPostLatestPostsForUser(@PathVariable("id") long userId) throws PostCustomException {
         return this.service.getLatestPost(userId);
+    }
+
+    @GetMapping("api/trending")
+    public GetUserPostsResponseModel getTrendingPosts() throws PostCustomException{
+        return this.service.getTrendingPostsLastWeek();
     }
 
     private String extractTokenFromAuthorizationHeader(String authorizationHeader) {

@@ -17,4 +17,5 @@ public interface IPostService {
 
     boolean userOwnsPost (long postId, long userId);
     GetUserPostsResponseModel getLatestPost(long userId) throws PostCustomException;
+    GetUserPostsResponseModel getTrendingPostsLastWeek() throws PostCustomException;
 }

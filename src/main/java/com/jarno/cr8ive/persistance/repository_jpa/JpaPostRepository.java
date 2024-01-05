@@ -8,11 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface JpaPostRepository extends JpaRepository<PostJpaMapper, String> {
+public interface JpaPostRepository extends JpaRepository<PostJpaMapper, Long> {
     List<PostJpaMapper> findByUserId(long userId);
     Optional<PostJpaMapper> findPostById(long postId);
     @Modifying
@@ -27,4 +28,14 @@ public interface JpaPostRepository extends JpaRepository<PostJpaMapper, String> 
             "    WHERE sp.user.id = :userId) " +
             "ORDER BY p.creationDate DESC")
     List<PostJpaMapper> findUnseenPosts(@Param("userId") Long userId, Pageable pageable);
+
+    @Query("Select size(p.likes) FROM PostJpaMapper p WHERE p.id = :postId")
+    long findLikeCountByPostId (@Param("postId") long postId);
+
+    @Query("SELECT p FROM PostJpaMapper p " +
+            "WHERE p.creationDate >= :startDate " +
+            "AND p.creationDate <= :endDate")
+    List<PostJpaMapper> findPostsInDateRange(Date startDate, Date endDate, Pageable pageable);
 }
+
+
