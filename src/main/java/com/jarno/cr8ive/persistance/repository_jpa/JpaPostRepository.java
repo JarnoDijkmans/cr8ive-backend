@@ -34,7 +34,8 @@ public interface JpaPostRepository extends JpaRepository<PostJpaMapper, Long> {
 
     @Query("SELECT p FROM PostJpaMapper p " +
             "WHERE p.creationDate >= :startDate " +
-            "AND p.creationDate <= :endDate")
+            "AND p.creationDate <= :endDate " +
+            "ORDER BY SIZE(p.likes) DESC")
     List<PostJpaMapper> findPostsInDateRange(Date startDate, Date endDate, Pageable pageable);
 }
 

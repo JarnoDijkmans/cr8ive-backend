@@ -75,7 +75,6 @@ public class UserConverterImpl implements UserConverter {
         } else if (user instanceof BusinessAccount) {
             return BusinessAccountConverter.toUserJpaMapper(userJpaMapper);
         } else {
-            // handle other types of users
             return null;
         }
     }
