@@ -3,13 +3,11 @@ package com.jarno.cr8ive.persistance.converter.impl;
 import com.jarno.cr8ive.domain.factory.impl.UserFactory;
 import com.jarno.cr8ive.domain.user.IUser;
 import com.jarno.cr8ive.domain.user.impl.BusinessAccount;
+import com.jarno.cr8ive.domain.user.impl.ModeratorAccount;
 import com.jarno.cr8ive.domain.user.impl.PersonalAccount;
 import com.jarno.cr8ive.persistance.converter.RolesConverter;
 import com.jarno.cr8ive.persistance.converter.UserConverter;
-import com.jarno.cr8ive.persistance.repository_impl.entity.BusinessAccountJpaMapper;
-import com.jarno.cr8ive.persistance.repository_impl.entity.PersonalAccountJpaMapper;
-import com.jarno.cr8ive.persistance.repository_impl.entity.RolesJpaMapper;
-import com.jarno.cr8ive.persistance.repository_impl.entity.UserJpaMapper;
+import com.jarno.cr8ive.persistance.repository_impl.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,6 +50,9 @@ public class UserConverterImpl implements UserConverter {
         else if (jpaMapper instanceof BusinessAccountJpaMapper business){
             user = factory.createBusinessAccount(business.getId(), business.getFirstName(), business.getLastName(), business.getPhoneNumber(), business.getEmailAddress(), business.getBirthday(), business.getProfilePicture(), roleConverter.toRoles(business.getUserRoles()), business.getPasswordHash());
         }
+        else if (jpaMapper instanceof ModeratorAccountJpaMapper moderator){
+            user = factory.createModeratorAccount(moderator.getId(), moderator.getFirstName(), moderator.getLastName(), moderator.getEmailAddress(), moderator.getBirthday(), moderator.getProfilePicture(), roleConverter.toRoles(moderator.getUserRoles()), moderator.getPasswordHash());
+        }
         else {return null;}
 
         return user;
@@ -74,6 +75,8 @@ public class UserConverterImpl implements UserConverter {
             return PersonalAccountConverter.toUserJpaMapper(userJpaMapper);
         } else if (user instanceof BusinessAccount) {
             return BusinessAccountConverter.toUserJpaMapper(userJpaMapper);
+        } else if (user instanceof ModeratorAccount) {
+            return ModeratorAccountConverter.toUserJpaMapper(userJpaMapper);
         } else {
             return null;
         }

@@ -5,23 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="Before updating like count with posts">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V15__Update_Size_Description_Post.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/0/0015566db22377449cdcc1661f1f7d9b22600b8d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/f/1fa6bfca199cd818e53e082ee8f648c91b7132f0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3f7486fc76d108a1d7b8d6e3847b11c24b9f248f" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3f7486fc76d108a1d7b8d6e3847b11c24b9f248f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2691025acf6c3014c04e5aab9c80d427819d317" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d744968d570a3067462f1df66dec806c27878fc0" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/model/request/user/CreateModeratorRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/IRoleFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/impl/RoleFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/user/impl/ModeratorAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/impl/ModeratorAccountConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/ModeratorAccountJpaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V16__Add_UserRole_Table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/LikeServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/4/c4905e7c8767835ed25c9f221a32806b205d204a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/4/c4905e7c8767835ed25c9f221a32806b205d204a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/0/0015566db22377449cdcc1661f1f7d9b22600b8d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/f/1fa6bfca199cd818e53e082ee8f648c91b7132f0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/2/a2691025acf6c3014c04e5aab9c80d427819d317" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/7/d744968d570a3067462f1df66dec806c27878fc0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/configuration/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/IUserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/IUserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/impl/UserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/domain/factory/impl/UserFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/impl/UserConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/converter/impl/UserConverterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaPostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_jpa/JpaPostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/posts/PostNumber_1/Sculpting.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/posts/PostNumber_11/CI-CD diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/LikeJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/LikeJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/PostJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/entity/PostJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/posts/PostNumber_2/Powerpoint.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/posts/PostNumber_2/Sculpting.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/posts/PostNumber_6/Powerpoint.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +125,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.jarno.cr8ive.business.model.request.post" />
       <recent name="com.jarno.cr8ive.business.converter" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -127,7 +140,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Main">
-    <configuration name="AuthServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LikeServiceTest.testValidatePostLiked_True" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -140,7 +153,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.jarno.cr8ive.business.services.AuthServiceTest&quot;" />
+            <option value="&quot;com.jarno.cr8ive.business.services.LikeServiceTest.testValidatePostLiked_True&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -151,7 +164,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PostServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PostServiceTest.testGetLatestPost_FindLatestPostException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -164,7 +177,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest&quot;" />
+            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest.testGetLatestPost_FindLatestPostException&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -175,7 +188,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PostServiceTest.testDeleteUserPost_Success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PostServiceTest.testGetLatestPost_FindLatestPostNull" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -188,7 +201,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest.testDeleteUserPost_Success&quot;" />
+            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest.testGetLatestPost_FindLatestPostNull&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -199,7 +212,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PostServiceTest.testFindByPostId_Success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PostServiceTest.testGetTrendingPostsLastWeek_RetrievalFailure" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -212,7 +225,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest.testFindByPostId_Success&quot;" />
+            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest.testGetTrendingPostsLastWeek_RetrievalFailure&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -223,7 +236,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PostServiceTest.testUserOwnsPost_Success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PostServiceTest.testGetTrendingPostsLastWeek_Success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -236,7 +249,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest.testUserOwnsPost_Success&quot;" />
+            <option value="&quot;com.jarno.cr8ive.business.services.PostServiceTest.testGetTrendingPostsLastWeek_Success&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -263,11 +276,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PostServiceTest" />
-        <item itemvalue="Gradle.PostServiceTest.testDeleteUserPost_Success" />
-        <item itemvalue="Gradle.PostServiceTest.testUserOwnsPost_Success" />
-        <item itemvalue="Gradle.PostServiceTest.testFindByPostId_Success" />
-        <item itemvalue="Gradle.AuthServiceTest" />
+        <item itemvalue="Gradle.PostServiceTest.testGetTrendingPostsLastWeek_Success" />
+        <item itemvalue="Gradle.PostServiceTest.testGetTrendingPostsLastWeek_RetrievalFailure" />
+        <item itemvalue="Gradle.PostServiceTest.testGetLatestPost_FindLatestPostException" />
+        <item itemvalue="Gradle.PostServiceTest.testGetLatestPost_FindLatestPostNull" />
+        <item itemvalue="Gradle.LikeServiceTest.testValidatePostLiked_True" />
       </list>
     </recent_temporary>
   </component>
@@ -418,7 +431,12 @@
       <workItem from="1704361429533" duration="10407000" />
       <workItem from="1704462695387" duration="4832000" />
       <workItem from="1704552971279" duration="2215000" />
-      <workItem from="1704641091316" duration="1935000" />
+      <workItem from="1704641091316" duration="2073000" />
+      <workItem from="1704701571334" duration="3630000" />
+      <workItem from="1704711281473" duration="476000" />
+      <workItem from="1704809356159" duration="7720000" />
+      <workItem from="1704824403078" duration="344000" />
+      <workItem from="1704874862025" duration="6364000" />
     </task>
     <task id="LOCAL-00001" summary="New application">
       <option name="closed" value="true" />
@@ -619,16 +637,6 @@
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/PostController.java</url>
           <line>34</line>
           <option name="timeStamp" value="87" />
@@ -639,24 +647,19 @@
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/PostService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/UserController.java</url>
           <line>40</line>
-          <option name="timeStamp" value="90" />
+          <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="91" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/PostRepositoryImpl.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="92" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/UserRepositoryImpl.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistence/JpaUserRepository.java</url>

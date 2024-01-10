@@ -53,7 +53,7 @@ public class PostController {
         long userId = authService.extractUserIdFromToken(token);
         Set<String> userRoles = authService.extractRolesFromToken(token);
 
-        if (userRoles.contains("maintainer")) {
+        if (userRoles.contains("MODERATOR")) {
             service.deleteUserPost(postId);
             return ResponseEntity.ok("Post deleted successfully by maintainer.");
         } else {

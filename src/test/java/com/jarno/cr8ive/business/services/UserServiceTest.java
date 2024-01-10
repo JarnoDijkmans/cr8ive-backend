@@ -3,10 +3,12 @@ package com.jarno.cr8ive.business.services;
 import com.jarno.cr8ive.business.boundaries.repository.IUserRepository;
 import com.jarno.cr8ive.business.exeption.UserCustomException;
 import com.jarno.cr8ive.business.model.request.user.CreateBusinessRequestModel;
+import com.jarno.cr8ive.business.model.request.user.CreateModeratorRequestModel;
 import com.jarno.cr8ive.business.model.request.user.CreatePersonalUserRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreateUserResponseModel;
 import com.jarno.cr8ive.business.model.response.user.GetAllUsersResponseModel;
 import com.jarno.cr8ive.business.model.response.user.GetUserResponseModel;
+import com.jarno.cr8ive.domain.factory.IRoleFactory;
 import com.jarno.cr8ive.domain.factory.IUserFactory;
 import com.jarno.cr8ive.domain.user.IUser;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,8 +17,7 @@ import org.mockito.Mockito;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -24,6 +25,8 @@ class UserServiceTest {
 
     IUserRepository gateway;
     StorageService storageService;
+
+    IRoleFactory roleFactory;
     IUserFactory factory;
     UserService userService;
     IUser mockUser;
@@ -33,11 +36,13 @@ class UserServiceTest {
         gateway = Mockito.mock(IUserRepository.class);
         storageService = Mockito.mock(StorageService.class);
         factory = Mockito.mock(IUserFactory.class);
-        userService = new UserService(gateway, factory, storageService);
+        roleFactory = Mockito.mock(IRoleFactory.class);
+        userService = new UserService(gateway, factory, roleFactory, storageService);
 
         mockUser = Mockito.mock(IUser.class);
         Mockito.when(factory.createPersonalAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
         Mockito.when(factory.createBusinessAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
+        Mockito.when(factory.createModeratorAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
 
         Mockito.doNothing().when(storageService).storeUserProfilePicture(any(IUser.class), any(MultipartFile.class));
     }
@@ -61,6 +66,20 @@ class UserServiceTest {
         // Arrange
         MultipartFile sampleFile = createSampleMultipartFile();
         CreateBusinessRequestModel requestModel = new CreateBusinessRequestModel("jarno", "dijkmans", "0612137055","jarnodijkmans@gmail.com", "2002-01-12", "test123", sampleFile);
+
+        // Act
+        CreateUserResponseModel responseModel = userService.createAccount(requestModel);
+
+        // Assert
+        assertNotNull(responseModel);
+        verify(gateway, times(1)).save(any(IUser.class));
+    }
+
+    @Test
+    void testCreateModeratorAccount_Successfully() throws UserCustomException {
+        // Arrange
+        MultipartFile sampleFile = createSampleMultipartFile();
+        CreateModeratorRequestModel requestModel = new CreateModeratorRequestModel("jarno", "dijkmans", "jarnodijkmans@gmail.com", "2002-01-12", "test123", sampleFile);
 
         // Act
         CreateUserResponseModel responseModel = userService.createAccount(requestModel);
@@ -111,15 +130,21 @@ class UserServiceTest {
 
 
     @Test
-    void testGetUserById_SuccessFully() throws UserCustomException{
+    void testGetUserById_SuccessFully() throws UserCustomException {
         // Arrange
-        long id = 1;
+        long id = 60;
+
+        // Mock behavior for repository
+        when(gateway.findUserById(id)).thenReturn(mockUser);
+        when(mockUser.getId()).thenReturn(id);
 
         // Act
         GetUserResponseModel responseModel = userService.getUserById(id);
 
         // Assert
         assertNotNull(responseModel);
+        assertEquals(id, responseModel.getId());
+        // Other assertions based on mockUser's properties
         verify(gateway, times(1)).findUserById(id);
     }
 

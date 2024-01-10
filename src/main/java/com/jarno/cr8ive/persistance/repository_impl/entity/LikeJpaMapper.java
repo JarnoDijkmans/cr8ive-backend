@@ -1,16 +1,14 @@
 package com.jarno.cr8ive.persistance.repository_impl.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "Likes")
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

@@ -19,10 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -32,6 +29,9 @@ class PostServiceTest {
     private PostService postService;
     @Mock
     private IPostRepository gatewayMock;
+
+    @Mock
+    private LikeService likeService;
 
     @Mock
     private StorageService storageServiceMock;
@@ -178,7 +178,7 @@ class PostServiceTest {
         when(gatewayMock.findByPostId(postId)).thenReturn(mockPost);
 
         // ACT
-        PostService postService = new PostService(gatewayMock, storageServiceMock);
+        PostService postService = new PostService(gatewayMock, storageServiceMock, likeService );
         boolean isUserOwner = postService.userOwnsPost(postId, userId);
 
         // ASSERT
@@ -186,4 +186,88 @@ class PostServiceTest {
     }
 
 
+    @Test
+    void testGetLatestPost_FindLatestPostNull() throws PostCustomException {
+        // ARRANGE
+        long userId = 123; // Replace with a valid user ID for your test
+        when(gatewayMock.findLatestPost(userId)).thenReturn(null);
+        List<Post> alreadySeenPosts = new ArrayList<>();
+        when(gatewayMock.findByUserId(userId)).thenReturn(alreadySeenPosts);
+
+        // ACT
+        GetUserPostsResponseModel response = postService.getLatestPost(userId);
+
+        // ASSERT
+        assertEquals(alreadySeenPosts.size(), response.getPost().size());
+    }
+
+    @Test
+    void testGetLatestPost_FindLatestPostException() {
+        // ARRANGE
+        long userId = 123;
+        when(gatewayMock.findLatestPost(userId)).thenThrow(new RuntimeException("exception"));
+
+        // ACT & ASSERT
+        PostCustomException exception = assertThrows(PostCustomException.class, () -> postService.getLatestPost(userId));
+        assertEquals("Retrieval was unsuccessful", exception.getMessage());
+    }
+
+//    @Test
+//    void testGetTrendingPostsLastWeek_RetrievalFailure() {
+//        // ARRANGE
+//        Calendar calendar = Calendar.getInstance();
+//        Date endDate = calendar.getTime(); // Current date
+//
+//        calendar.add(Calendar.DAY_OF_YEAR, -7); // Go back 7 days
+//        Date startDate = calendar.getTime();
+//
+//        when(gatewayMock.getTrendingPostsLastWeek(startDate, endDate)).thenThrow(new RuntimeException("Simulated retrieval exception"));
+//
+//        // ACT & ASSERT
+//        PostCustomException exception = assertThrows(PostCustomException.class, () -> postService.getTrendingPostsLastWeek());
+//        assertEquals("Retrieval trending posts was unsuccessful", exception.getMessage());
+//    }
+//
+//    @Test
+//    void testGetTrendingPostsLastWeek_Success() throws PostCustomException {
+//        // ARRANGE
+//        Calendar calendar = Calendar.getInstance();
+//        Date endDate = calendar.getTime();
+//
+//        calendar.add(Calendar.DAY_OF_YEAR, -7);
+//        Date startDate = calendar.getTime();
+//
+//        List<Post> trendingPosts = createMockTrendingPosts();
+//        when(gatewayMock.getTrendingPostsLastWeek(startDate, endDate)).thenReturn(trendingPosts);
+//
+//        // ACT
+//        GetUserPostsResponseModel response = postService.getTrendingPostsLastWeek();
+//
+//        // ASSERT
+//        assertEquals(trendingPosts.size(), response.getPost().size());
+//    }
+//
+//
+//    private List <Post> createMockTrendingPosts() {
+//        long userId = 123;
+//
+//        Calendar calendar = Calendar.getInstance();
+//
+//        calendar.add(Calendar.DAY_OF_YEAR, -3);
+//        Date date = calendar.getTime();
+//
+//        List<Content> contentList = new ArrayList<>();
+//        Content content = Content.builder()
+//                .url("test")
+//                .type("test")
+//                .build();
+//        contentList.add(content);
+//        List<Integer> hashtagIds = new ArrayList<>();
+//        hashtagIds.add(1);
+//        hashtagIds.add(2);
+//        Post post1 = new Post(1L, contentList ,"mock description", date, 5L, 0, hashtagIds, userId );
+//        List <Post> posts = new ArrayList<>();
+//        posts.add(post1);
+//        return posts;
+//    }
 }

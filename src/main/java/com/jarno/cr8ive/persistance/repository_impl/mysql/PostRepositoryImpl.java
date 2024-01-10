@@ -7,6 +7,8 @@ import com.jarno.cr8ive.persistance.repository_impl.entity.HashtagJpaMapper;
 import com.jarno.cr8ive.persistance.repository_impl.entity.PostJpaMapper;
 import com.jarno.cr8ive.persistance.repository_jpa.JpaHashtagRepository;
 import com.jarno.cr8ive.persistance.repository_jpa.JpaPostRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +23,10 @@ public class PostRepositoryImpl implements IPostRepository {
     private final JpaPostRepository repository;
     private final JpaHashtagRepository hashtagsRepository;
     private final PostConverter converter;
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Autowired
     public PostRepositoryImpl(JpaPostRepository repository, JpaHashtagRepository hashtagRepository, PostConverter converter) {
         this.repository = repository;
@@ -47,12 +53,15 @@ public class PostRepositoryImpl implements IPostRepository {
     }
     @Transactional
     public void deletePost(long postId) {
-        Optional<PostJpaMapper> postOptional = repository.findPostById(postId);
-        postOptional.ifPresent(post -> {
-            post.getHashtags().clear();
-            post.getPostContents().clear();
-            repository.deletePostById(postId);
-        });
+        PostJpaMapper post = entityManager.find(PostJpaMapper.class, postId);
+        if (post != null) {
+            post.getLikes().forEach(entityManager::remove);
+            post.getPostContents().forEach(entityManager::remove);
+            post.getHashtags().clear(); // Assuming hashtags are shared and should not be deleted
+            post.getSeenByUsers().forEach(entityManager::remove);
+            entityManager.remove(post);
+            entityManager.flush();
+        }
     }
 
     private Set<HashtagJpaMapper> findHashtagsByIds(Post post){

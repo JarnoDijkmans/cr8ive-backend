@@ -13,10 +13,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @AllArgsConstructor
@@ -62,7 +59,7 @@ public class PostService implements IPostService {
             return new GetUserPostsResponseModel(posts);
         }
         catch (Exception e){
-            throw new PostCustomException("Retrieval was unsuccessful");
+            throw new PostCustomException("Retrieval of user was unsuccessful");
         }
     }
 
@@ -128,7 +125,7 @@ public class PostService implements IPostService {
             Date startDate = calendar.getTime();
 
             List<Post> posts = repo.getTrendingPostsLastWeek(startDate, endDate);
-            if (posts != null){
+            if (!posts.isEmpty()) {
                 likeService.getLikesForPosts(posts);
             }
             return new GetUserPostsResponseModel(posts);
@@ -136,7 +133,4 @@ public class PostService implements IPostService {
             throw new PostCustomException("Retrieval trending posts was unsuccessful");
         }
     }
-
-
-
 }
