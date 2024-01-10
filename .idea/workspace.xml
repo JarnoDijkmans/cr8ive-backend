@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="Before updating like count with posts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/business/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,7 @@
       <recent name="com.jarno.cr8ive.business.services" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main">
+  <component name="RunManager" selected="Gradle.PostServiceTest.testGetTrendingPostsLastWeek_Success">
     <configuration name="PostServiceTest.testGetTrendingPostsLastWeek_Success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -251,11 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PostServiceTest.testGetTrendingPostsLastWeek_Success" />
         <item itemvalue="Gradle.UserServiceTest.testSaveAccount_ThrowsException" />
         <item itemvalue="Gradle.UserServiceTest.testFindUserById_Fails" />
         <item itemvalue="Gradle.UserServiceTest.testGetUserById_Fails" />
         <item itemvalue="Gradle.UserServiceTest.testCreateModerator_ThrowsException" />
-        <item itemvalue="Gradle.PostServiceTest.testGetTrendingPostsLastWeek_Success" />
       </list>
     </recent_temporary>
   </component>
@@ -411,7 +409,7 @@
       <workItem from="1704711281473" duration="476000" />
       <workItem from="1704809356159" duration="7720000" />
       <workItem from="1704824403078" duration="344000" />
-      <workItem from="1704874862025" duration="7796000" />
+      <workItem from="1704874862025" duration="8664000" />
     </task>
     <task id="LOCAL-00001" summary="New application">
       <option name="closed" value="true" />
@@ -635,6 +633,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/repository_impl/mysql/UserRepositoryImpl.java</url>
           <line>23</line>
           <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java</url>
+          <line>259</line>
+          <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistence/JpaUserRepository.java</url>

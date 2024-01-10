@@ -226,46 +226,40 @@ class PostServiceTest {
 //        assertEquals("Retrieval trending posts was unsuccessful", exception.getMessage());
 //    }
 //
-//    @Test
-//    void testGetTrendingPostsLastWeek_Success() throws PostCustomException {
-//        // ARRANGE
-//        Calendar calendar = Calendar.getInstance();
-//        Date endDate = calendar.getTime();
-//
-//        calendar.add(Calendar.DAY_OF_YEAR, -7);
-//        Date startDate = calendar.getTime();
-//
-//        List<Post> trendingPosts = createMockTrendingPosts();
-//        when(gatewayMock.getTrendingPostsLastWeek(startDate, endDate)).thenReturn(trendingPosts);
-//
-//        // ACT
-//        GetUserPostsResponseModel response = postService.getTrendingPostsLastWeek();
-//
-//        // ASSERT
-//        assertEquals(trendingPosts.size(), response.getPost().size());
-//    }
-//
-//
-//    private List <Post> createMockTrendingPosts() {
-//        long userId = 123;
-//
-//        Calendar calendar = Calendar.getInstance();
-//
-//        calendar.add(Calendar.DAY_OF_YEAR, -3);
-//        Date date = calendar.getTime();
-//
-//        List<Content> contentList = new ArrayList<>();
-//        Content content = Content.builder()
-//                .url("test")
-//                .type("test")
-//                .build();
-//        contentList.add(content);
-//        List<Integer> hashtagIds = new ArrayList<>();
-//        hashtagIds.add(1);
-//        hashtagIds.add(2);
-//        Post post1 = new Post(1L, contentList ,"mock description", date, 5L, 0, hashtagIds, userId );
-//        List <Post> posts = new ArrayList<>();
-//        posts.add(post1);
-//        return posts;
-//    }
+    @Test
+    void testGetTrendingPostsLastWeek_Success() throws PostCustomException {
+        // ARRANGE
+        List<Post> trendingPosts = createMockTrendingPosts();
+        when(gatewayMock.getTrendingPostsLastWeek(any(), any())).thenReturn(trendingPosts);
+
+        // ACT
+        GetUserPostsResponseModel response = postService.getTrendingPostsLastWeek();
+
+        // ASSERT
+        assertEquals(trendingPosts.size(), response.getPost().size());
+    }
+
+
+    private List <Post> createMockTrendingPosts() {
+        long userId = 123;
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.add(Calendar.DAY_OF_YEAR, -3);
+        Date date = calendar.getTime();
+
+        List<Content> contentList = new ArrayList<>();
+        Content content = Content.builder()
+                .url("test")
+                .type("test")
+                .build();
+        contentList.add(content);
+        List<Integer> hashtagIds = new ArrayList<>();
+        hashtagIds.add(1);
+        hashtagIds.add(2);
+        Post post1 = new Post(1L, contentList ,"mock description", date, 5L, 0, hashtagIds, userId );
+        List <Post> posts = new ArrayList<>();
+        posts.add(post1);
+        return posts;
+    }
 }
