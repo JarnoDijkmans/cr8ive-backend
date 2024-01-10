@@ -121,6 +121,9 @@ public class UserService implements IUserService {
         IUser user;
         try {
             user = repo.findUserById(id);
+            if (user == null) {
+                throw new UserCustomException("User not found");
+            }
         } catch(Exception e){
             throw new UserCustomException("Problem with finding user");
         }

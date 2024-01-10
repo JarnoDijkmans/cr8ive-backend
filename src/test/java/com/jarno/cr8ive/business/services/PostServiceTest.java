@@ -119,12 +119,10 @@ class PostServiceTest {
         // Assertions
         assertNotNull(response);
         assertEquals(mockPosts.size(), response.getPost().size());
-        // Add more specific assertions based on your GetUserPostsResponseModel structure
     }
 
     @Test
      void testFindByUserId_Exception() {
-        // Mocking repository to throw an exception
         long userId = 123; // Replace with a valid user ID for your test
         when(gatewayMock.findByUserId(userId)).thenThrow(new RuntimeException("Simulated exception"));
 
@@ -189,7 +187,7 @@ class PostServiceTest {
     @Test
     void testGetLatestPost_FindLatestPostNull() throws PostCustomException {
         // ARRANGE
-        long userId = 123; // Replace with a valid user ID for your test
+        long userId = 123;
         when(gatewayMock.findLatestPost(userId)).thenReturn(null);
         List<Post> alreadySeenPosts = new ArrayList<>();
         when(gatewayMock.findByUserId(userId)).thenReturn(alreadySeenPosts);

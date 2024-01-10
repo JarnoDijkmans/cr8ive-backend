@@ -115,6 +115,34 @@ class UserServiceTest {
         verify(gateway, times(1)).existsByEmailAddress(anyString());
     }
 
+
+    @Test
+    void testSaveAccount_ThrowsException(){
+        // Arrange
+        MultipartFile sampleFile = createSampleMultipartFile();
+        CreateBusinessRequestModel requestModel = new CreateBusinessRequestModel("jarno", "dijkmans", "0612137055","jarnodijkmans@gmail.com", "2002-01-12", "test123", sampleFile);
+
+        when(gateway.save(any(IUser.class))).thenThrow(new RuntimeException("Simulated save exception"));
+
+        // Act and Assert
+        assertThrows(UserCustomException.class, () -> userService.createAccount(requestModel));
+        verify(gateway, times(1)).save(any(IUser.class));
+    }
+
+    @Test
+    void testCreateModerator_ThrowsException(){
+        // Arrange
+        MultipartFile sampleFile = createSampleMultipartFile();
+        CreateModeratorRequestModel requestModel = new CreateModeratorRequestModel("jarno", "dijkmans","jarnodijkmans@gmail.com", "2002-01-12", "test123", sampleFile);
+
+        when(gateway.existsByEmailAddress(anyString())).thenReturn(true);
+
+        // Act and Assert
+        assertThrows(UserCustomException.class, () -> userService.createAccount(requestModel));
+        verify(gateway, times(1)).existsByEmailAddress(anyString());
+    }
+
+
     @Test
     void testGetUsersByName_SuccessFully() throws UserCustomException {
         // Arrange
@@ -146,6 +174,33 @@ class UserServiceTest {
         assertEquals(id, responseModel.getId());
         // Other assertions based on mockUser's properties
         verify(gateway, times(1)).findUserById(id);
+    }
+
+    @Test
+    void testFindUserById_Fails() throws UserCustomException {
+        // Arrange
+        long id = 1;
+
+        // Mock behavior for repository
+        when(gateway.findUserById(id)).thenReturn(null);
+        when(mockUser.getId()).thenReturn(id);
+
+        // Assert
+        assertThrows(UserCustomException.class, () -> userService.getUserById(id));
+    }
+
+
+    @Test
+    void testGetUserById_Fails() throws UserCustomException {
+        // Arrange
+        long id = 1;
+
+        // Mock behavior for repository
+        when(gateway.findUserById(id)).thenReturn(mockUser);
+        when(mockUser.getId()).thenReturn(id);
+
+        // Assert
+        assertThrows(UserCustomException.class, () -> userService.getUserById(0));
     }
 
     private MultipartFile createSampleMultipartFile() {
