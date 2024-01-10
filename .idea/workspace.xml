@@ -5,8 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d299ff8-5c41-4964-9948-d65d91c9b974" name="Changes" comment="Before updating like count with posts">
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bd95ac-0cd7-405c-b26e-119830ff4517.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bd95ac-0cd7-405c-b26e-119830ff4517.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bd95ac-0cd7-405c-b26e-119830ff4517/storage_v2/_src_/schema/cr8ive.j0pRrw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bd95ac-0cd7-405c-b26e-119830ff4517/storage_v2/_src_/schema/cr8ive.j0pRrw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3f7486fc76d108a1d7b8d6e3847b11c24b9f248f" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3f7486fc76d108a1d7b8d6e3847b11c24b9f248f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jarno/cr8ive/business/services/PostServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V10__Create_Chat_Tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V11__update_post_table_add_timestamp.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V12__Create_seen_post_table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V13__Remove_Timestamp_post_table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V14__Remove_LikeFromPost_AddLikeTable.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V15__Update_Size_Description_Post.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V16__Add_UserRole_Table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_User_Tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__Create_Follow_Tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V3__Create_Post_Tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V4__Create_Hashtag_Tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V5__Update_User_Tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V6__Create_UserRoles_Tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V7__Update_User_Tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V8__Update_User_Tables-Back.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V9__Update_User_Tables_Again.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/posts/PostNumber_4/employee1.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +138,7 @@
       <recent name="com.jarno.cr8ive.business.services" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PostServiceTest.testGetTrendingPostsLastWeek_Success">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="PostServiceTest.testGetTrendingPostsLastWeek_Success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -409,7 +435,8 @@
       <workItem from="1704711281473" duration="476000" />
       <workItem from="1704809356159" duration="7720000" />
       <workItem from="1704824403078" duration="344000" />
-      <workItem from="1704874862025" duration="8664000" />
+      <workItem from="1704874862025" duration="10210000" />
+      <workItem from="1704886703321" duration="5338000" />
     </task>
     <task id="LOCAL-00001" summary="New application">
       <option name="closed" value="true" />
@@ -598,26 +625,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/persistance/controller/register/UserController.java</url>
           <line>21</line>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/WebSocketChatController.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/WebSocketChatController.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/PostController.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/PostController.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jarno/cr8ive/controller/UserController.java</url>

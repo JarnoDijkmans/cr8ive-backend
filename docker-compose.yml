@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  backend:
+    build: ../cr8ive-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=jdbc:mysql://db:3306/cr8ive
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/cr8ive
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=!Gaptunklas7
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=!Gaptunklas7
+      - MYSQL_DATABASE=cr8ive
+    volumes:
+      - mysqldata:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysqldata:
