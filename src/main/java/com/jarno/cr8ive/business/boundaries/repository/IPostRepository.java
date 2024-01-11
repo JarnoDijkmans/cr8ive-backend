@@ -20,4 +20,6 @@ public interface IPostRepository extends IPostExistsGateway {
 
     List<Post> getTrendingPostsLastWeek(Date startDate, Date endDate);
 
+    String updateDescription(long postId, String description);
+
 }

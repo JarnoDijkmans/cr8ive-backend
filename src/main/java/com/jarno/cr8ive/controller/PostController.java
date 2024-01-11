@@ -4,6 +4,8 @@ import com.jarno.cr8ive.business.boundaries.services.IAuthService;
 import com.jarno.cr8ive.business.boundaries.services.IPostService;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
+import com.jarno.cr8ive.business.model.request.post.UpdateDescriptionRequestModel;
+import com.jarno.cr8ive.business.model.response.post.UpdateDescriptionResponseModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetPostByPostIdResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
@@ -65,6 +67,24 @@ public class PostController {
             }
         }
     }
+
+    @PostMapping("/update/description")
+    public ResponseEntity<Object> updateDescription(@RequestHeader("Authorization") String authorizationHeader, @RequestBody UpdateDescriptionRequestModel requestModel) {
+        try {
+            String token = extractTokenFromAuthorizationHeader(authorizationHeader);
+            long userId = authService.extractUserIdFromToken(token);
+
+            if (service.userOwnsPost(requestModel.getPostId(), userId)) {
+                UpdateDescriptionResponseModel updatedDescription = this.service.updateDescription(requestModel.getPostId(), requestModel.getDescription());
+                return ResponseEntity.ok(updatedDescription);
+            } else {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User doesn't own this post");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred during the update");
+        }
+    }
+
 
 
     @GetMapping("/api/forUser/{id}")

@@ -5,6 +5,7 @@ import com.jarno.cr8ive.business.boundaries.services.IPostService;
 import com.jarno.cr8ive.business.converter.CreatePostConverter;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
+import com.jarno.cr8ive.business.model.response.post.UpdateDescriptionResponseModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetPostByPostIdResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
@@ -131,6 +132,17 @@ public class PostService implements IPostService {
             return new GetUserPostsResponseModel(posts);
         }catch (Exception e) {
             throw new PostCustomException("Retrieval trending posts was unsuccessful");
+        }
+    }
+
+    @Override
+    public UpdateDescriptionResponseModel updateDescription(long postId, String description) throws PostCustomException{
+        try{
+            String newDescription = repo.updateDescription(postId, description);
+            return new UpdateDescriptionResponseModel(newDescription);
+
+        }catch (Exception e) {
+            throw new PostCustomException("Something went wrong during updating description.");
         }
     }
 }

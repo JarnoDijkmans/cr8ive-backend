@@ -2,6 +2,7 @@ package com.jarno.cr8ive.business.boundaries.services;
 
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
+import com.jarno.cr8ive.business.model.response.post.UpdateDescriptionResponseModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetPostByPostIdResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
@@ -18,4 +19,5 @@ public interface IPostService {
     boolean userOwnsPost (long postId, long userId);
     GetUserPostsResponseModel getLatestPost(long userId) throws PostCustomException;
     GetUserPostsResponseModel getTrendingPostsLastWeek() throws PostCustomException;
+    UpdateDescriptionResponseModel updateDescription(long postId, String description) throws PostCustomException;
 }

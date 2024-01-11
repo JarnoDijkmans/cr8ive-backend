@@ -14,7 +14,7 @@ services:
     networks:
       - app-network
     volumes:
-      - backend-data:/uploads
+      - ./uploads:/uploads
 
   db:
     image: mysql:latest
@@ -35,4 +35,3 @@ networks:
 
 volumes:
   mysqldata:
-  backend-data:

@@ -13,5 +13,9 @@ public interface PostConverter {
 
     List<Post> toPosts(List<PostJpaMapper> jpaMappers);
 
+    Post toPost(PostJpaMapper postJpaMapper);
+
     Optional<Post> toSingleOptionalPost(Optional<PostJpaMapper> jpaMapper);
+
+    PostJpaMapper updateDescription(PostJpaMapper postEntity, String description);
 }

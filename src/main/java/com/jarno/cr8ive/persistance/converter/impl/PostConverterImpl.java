@@ -32,6 +32,19 @@ public class PostConverterImpl implements PostConverter {
                 .toList();
     }
 
+
+    public Post toPost(PostJpaMapper postJpaMapper){
+        return Post.builder()
+                .id(postJpaMapper.getId())
+                .content(mapContentJpaMappers(postJpaMapper.getPostContents()))
+                .description(postJpaMapper.getDescription())
+                .creationDate(postJpaMapper.getCreationDate())
+                .shareCount(postJpaMapper.getShareCount())
+                .hashtagIds(mapHashtagJpaMappers(postJpaMapper.getHashtags()))
+                .userId(postJpaMapper.getUserId())
+                .build();
+    }
+
     private static List<Content> mapContentJpaMappers(List<ContentJpaMapper> contentJpaMappers) {
         if (contentJpaMappers == null) {
             return Collections.emptyList();
@@ -101,5 +114,20 @@ public class PostConverterImpl implements PostConverter {
                 .hashtagIds(mapHashtagJpaMappers(jpaMapper.getHashtags()))
                 .userId(jpaMapper.getUserId())
                 .build());
+    }
+
+    public PostJpaMapper updateDescription(PostJpaMapper postEntity, String description){
+        return PostJpaMapper.builder()
+                .id(postEntity.getId())
+                .postContents(postEntity.getPostContents())
+                .description(description)
+                .creationDate(postEntity.getCreationDate())
+                .likes(postEntity.getLikes())
+                .shareCount(postEntity.getShareCount())
+                .hashtags(postEntity.getHashtags())
+                .userId(postEntity.getUserId())
+                .seenByUsers(postEntity.getSeenByUsers())
+                .build();
+
     }
 }

@@ -57,7 +57,7 @@ public class PostRepositoryImpl implements IPostRepository {
         if (post != null) {
             post.getLikes().forEach(entityManager::remove);
             post.getPostContents().forEach(entityManager::remove);
-            post.getHashtags().clear(); // Assuming hashtags are shared and should not be deleted
+            post.getHashtags().clear();
             post.getSeenByUsers().forEach(entityManager::remove);
             entityManager.remove(post);
             entityManager.flush();
@@ -88,6 +88,19 @@ public class PostRepositoryImpl implements IPostRepository {
 
         List<PostJpaMapper> postJpaMappers = repository.findPostsInDateRange(startDate, endDate, pageable);
         return converter.toPosts(postJpaMappers);
+    }
+
+    public String updateDescription(long postId, String description) {
+        Optional<PostJpaMapper> postOptional = repository.findById(postId);
+
+        return postOptional.map(postEntity -> {
+            PostJpaMapper updatedPost = converter.updateDescription(postEntity, description);
+            if (updatedPost != null) {
+                PostJpaMapper post = repository.save(updatedPost);
+                return post.getDescription();
+            }
+            return null;
+        }).orElseThrow(() -> new RuntimeException("Post not found with ID: " + postId));
     }
 }
 
