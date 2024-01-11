@@ -13,12 +13,17 @@ services:
       - db
     networks:
       - app-network
+    volumes:
+      - backend-data:/uploads
 
   db:
-    image: mysql:8.0
+    image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=!Gaptunklas7
+      - MYSQL_PASSWORD=!Gaptunklas7
       - MYSQL_DATABASE=cr8ive
+    ports:
+      - "3306:3306"
     volumes:
       - mysqldata:/var/lib/mysql
     networks:
@@ -30,3 +35,4 @@ networks:
 
 volumes:
   mysqldata:
+  backend-data:
