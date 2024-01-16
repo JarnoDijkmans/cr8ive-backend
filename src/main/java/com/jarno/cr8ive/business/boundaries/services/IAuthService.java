@@ -5,4 +5,5 @@ import java.util.Set;
 public interface IAuthService {
     Set<String> extractRolesFromToken(String accessTokenEncoded);
     long extractUserIdFromToken(String accessTokenEncoded);
+    String extractTokenFromAuthorizationHeader(String authorizationHeader);
 }

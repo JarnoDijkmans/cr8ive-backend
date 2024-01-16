@@ -25,4 +25,8 @@ public class AuthService implements IAuthService {
         AccessToken decodedToken = tokenEncoderDecoder.decode(accessTokenEncoded);
         return decodedToken.getUserId();
     }
+
+    public String extractTokenFromAuthorizationHeader(String authorizationHeader) {
+        return authorizationHeader.replaceFirst("Bearer ", "").trim();
+    }
 }

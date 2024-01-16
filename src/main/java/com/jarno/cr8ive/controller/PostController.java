@@ -5,10 +5,10 @@ import com.jarno.cr8ive.business.boundaries.services.IPostService;
 import com.jarno.cr8ive.business.exeption.PostCustomException;
 import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.request.post.UpdateDescriptionRequestModel;
-import com.jarno.cr8ive.business.model.response.post.UpdateDescriptionResponseModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetPostByPostIdResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
+import com.jarno.cr8ive.business.model.response.post.UpdateDescriptionResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -85,16 +85,14 @@ public class PostController {
         }
     }
 
-
-
-    @GetMapping("/api/forUser/{id}")
-    public GetUserPostsResponseModel getPostLatestPostsForUser(@PathVariable("id") long userId) throws PostCustomException {
-        return this.service.getLatestPost(userId);
+    @GetMapping("/api/latestPost/{currentPage}")
+    public GetUserPostsResponseModel getPostLatestPostsForUser(@PathVariable("currentPage") int currentPage) throws PostCustomException {
+        return this.service.getLatestPost(currentPage);
     }
 
-    @GetMapping("api/trending")
-    public GetUserPostsResponseModel getTrendingPosts() throws PostCustomException{
-        return this.service.getTrendingPostsLastWeek();
+    @GetMapping("api/trending/{currentPage}")
+    public GetUserPostsResponseModel getTrendingPosts(@PathVariable("currentPage") int currentPage) throws PostCustomException{
+        return this.service.getTrendingPostsLastWeek(currentPage);
     }
 
     private String extractTokenFromAuthorizationHeader(String authorizationHeader) {

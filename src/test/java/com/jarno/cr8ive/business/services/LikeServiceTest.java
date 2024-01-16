@@ -76,7 +76,7 @@ class LikeServiceTest {
     @Test
     void testUpdateLikeCounter_Success() {
         // ARRANGE
-        LikeRequestModel requestModel = new LikeRequestModel(1L, 123L, true);
+        LikeRequestModel requestModel = new LikeRequestModel(1L, true);
         Post post = createPostWithAmountLikes(1L, 11);
         Optional<Post> postOptional = Optional.of(post);
 
@@ -85,7 +85,7 @@ class LikeServiceTest {
         when(repoMock.getLikeCount(1L)).thenReturn(12L);
 
         // ACT
-        UpdateLikeCounterResponseModel response = likeService.update(requestModel);
+        UpdateLikeCounterResponseModel response = likeService.update(requestModel, post.getUserId());
 
         // ASSERT
         assertEquals(12L, response.getLikeCount());

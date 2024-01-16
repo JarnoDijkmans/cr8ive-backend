@@ -7,6 +7,5 @@ import lombok.Getter;
 @AllArgsConstructor
 public class LikeRequestModel {
     long postId;
-    long userId;
     boolean liked;
 }

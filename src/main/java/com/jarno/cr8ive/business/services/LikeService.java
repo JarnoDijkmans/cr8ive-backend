@@ -33,10 +33,10 @@ public class LikeService implements ILikeService {
     }
 
     @Override
-    public UpdateLikeCounterResponseModel update(LikeRequestModel requestModel){
+    public UpdateLikeCounterResponseModel update(LikeRequestModel requestModel, long userId){
         try{
             //Dislike or like a post
-            likeRepository.toggleLike(requestModel.getPostId(), requestModel.getUserId(), requestModel.isLiked());
+            likeRepository.toggleLike(requestModel.getPostId(), userId, requestModel.isLiked());
             //receive the new count of likes
             Optional<Post> postOptional = repo.findByPostId(requestModel.getPostId());
             getLikesForOptionalPost(postOptional);

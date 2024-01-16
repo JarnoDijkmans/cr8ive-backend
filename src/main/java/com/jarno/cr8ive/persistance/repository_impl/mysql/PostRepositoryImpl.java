@@ -10,7 +10,6 @@ import com.jarno.cr8ive.persistance.repository_jpa.JpaPostRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,14 +77,12 @@ public class PostRepositoryImpl implements IPostRepository {
         return repository.findLikeCountByPostId(postId);
     }
 
-    public List<Post> findLatestPost (long userId){
-        List<PostJpaMapper> postJpaMappers = repository.findUnseenPosts(userId, PageRequest.of(0, 10));
+    public List<Post> findLatestPost (Pageable pageable){
+        List<PostJpaMapper> postJpaMappers = repository.findLatestPosts(pageable);
         return converter.toPosts(postJpaMappers);
     }
 
-    public List<Post> getTrendingPostsLastWeek(Date startDate, Date endDate) {
-        Pageable pageable = PageRequest.of(0, 10);
-
+    public List<Post> getTrendingPostsLastWeek(Date startDate, Date endDate, Pageable pageable) {
         List<PostJpaMapper> postJpaMappers = repository.findPostsInDateRange(startDate, endDate, pageable);
         return converter.toPosts(postJpaMappers);
     }

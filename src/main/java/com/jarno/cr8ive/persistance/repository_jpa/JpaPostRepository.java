@@ -20,14 +20,8 @@ public interface JpaPostRepository extends JpaRepository<PostJpaMapper, Long> {
     @Query("DELETE FROM PostJpaMapper p WHERE p.id = :postId")
     void deletePostById(@Param("postId") Long postId);
 
-    @Query("SELECT p " +
-            "FROM PostJpaMapper p " +
-            "WHERE p.id NOT IN ( " +
-            "    SELECT sp.post.id " +
-            "    FROM SeenPostsJpaMapper sp " +
-            "    WHERE sp.user.id = :userId) " +
-            "ORDER BY p.creationDate DESC")
-    List<PostJpaMapper> findUnseenPosts(@Param("userId") Long userId, Pageable pageable);
+    @Query("SELECT p FROM PostJpaMapper p ORDER BY p.creationDate DESC")
+    List<PostJpaMapper> findLatestPosts(Pageable pageable);
 
     @Query("Select size(p.likes) FROM PostJpaMapper p WHERE p.id = :postId")
     long findLikeCountByPostId (@Param("postId") long postId);

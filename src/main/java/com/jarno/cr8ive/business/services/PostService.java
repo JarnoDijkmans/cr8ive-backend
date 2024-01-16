@@ -11,6 +11,8 @@ import com.jarno.cr8ive.business.model.response.post.GetPostByPostIdResponseMode
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
 import com.jarno.cr8ive.domain.Post;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -99,33 +101,31 @@ public class PostService implements IPostService {
     }
 
     @Override
-    public GetUserPostsResponseModel getLatestPost(long userId) throws PostCustomException{
+    public GetUserPostsResponseModel getLatestPost(int currentPage) throws PostCustomException{
         try {
-            List<Post> posts = repo.findLatestPost(userId);
-            if (posts != null){
-                likeService.getLikesForPosts(posts);
-                return new GetUserPostsResponseModel(posts);
-            }
-            else {
-                //TODO
-                List<Post> alreadySeenPosts = repo.findByUserId(userId);
-                return new GetUserPostsResponseModel(alreadySeenPosts);
-            }
+            Pageable pageable = PageRequest.of(currentPage, 5);
+
+            List<Post> posts = repo.findLatestPost(pageable);
+            likeService.getLikesForPosts(posts);
+            return new GetUserPostsResponseModel(posts);
+
         }catch (Exception e){
             throw new PostCustomException("Retrieval was unsuccessful");
         }
     }
 
     @Override
-    public GetUserPostsResponseModel getTrendingPostsLastWeek() throws PostCustomException{
+    public GetUserPostsResponseModel getTrendingPostsLastWeek(int currentPage) throws PostCustomException{
         try{
             Calendar calendar = Calendar.getInstance();
-            Date endDate = calendar.getTime(); // Current date
+            Date endDate = calendar.getTime();
 
-            calendar.add(Calendar.DAY_OF_YEAR, -7); // Go back 7 days
+            calendar.add(Calendar.DAY_OF_YEAR, -7);
             Date startDate = calendar.getTime();
 
-            List<Post> posts = repo.getTrendingPostsLastWeek(startDate, endDate);
+            Pageable pageable = PageRequest.of(currentPage, 5);
+
+            List<Post> posts = repo.getTrendingPostsLastWeek(startDate, endDate, pageable);
             if (!posts.isEmpty()) {
                 likeService.getLikesForPosts(posts);
             }

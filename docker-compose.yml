@@ -14,7 +14,7 @@ services:
     networks:
       - app-network
     volumes:
-      - ./uploads:/uploads
+      - C:\Users\jarno\Projects\Cr8ive\cr8ive-backend\uploads:/uploads
 
   db:
     image: mysql:latest

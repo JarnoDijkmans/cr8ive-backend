@@ -17,7 +17,7 @@ public interface IPostService {
     void deleteUserPost (long postId) throws PostCustomException;
 
     boolean userOwnsPost (long postId, long userId);
-    GetUserPostsResponseModel getLatestPost(long userId) throws PostCustomException;
-    GetUserPostsResponseModel getTrendingPostsLastWeek() throws PostCustomException;
+    GetUserPostsResponseModel getLatestPost(int currentPage) throws PostCustomException;
+    GetUserPostsResponseModel getTrendingPostsLastWeek(int currentPage) throws PostCustomException;
     UpdateDescriptionResponseModel updateDescription(long postId, String description) throws PostCustomException;
 }
