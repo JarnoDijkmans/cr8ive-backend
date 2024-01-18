@@ -1078,8 +1078,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="292" parent="1" name="cr8ive">
-      <IntrospectionTimestamp>2024-01-11.15:59:14</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-01-11.14:59:14</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2024-01-18.14:20:22</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-01-18.13:20:22</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="293" parent="1" name="root">
@@ -1218,7 +1218,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="324" parent="300" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>8</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1239,7 +1239,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="328" parent="301" name="id">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>12</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1342,7 +1342,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="349" parent="305" name="id">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>12</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1378,7 +1378,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="357" parent="306" name="id">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>13</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1415,7 +1415,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="365" parent="307" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1490,7 +1490,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="381" parent="309" name="id">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>7</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1539,87 +1539,83 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DasType>text|0s</DasType>
       <Position>12</Position>
     </column>
-    <column id="393" parent="309" name="role">
-      <DasType>int|0s</DasType>
+    <column id="393" parent="309" name="password_hash">
+      <DasType>varchar(255)|0s</DasType>
       <Position>13</Position>
     </column>
-    <column id="394" parent="309" name="password_hash">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>14</Position>
-    </column>
-    <index id="395" parent="309" name="PRIMARY">
+    <index id="394" parent="309" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="396" parent="309" name="PRIMARY">
+    <key id="395" parent="309" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="397" parent="310" name="id">
+    <column id="396" parent="310" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="398" parent="310" name="follower_id">
+    <column id="397" parent="310" name="follower_id">
       <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="399" parent="310" name="followed_id">
+    <column id="398" parent="310" name="followed_id">
       <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <foreign-key id="400" parent="310" name="user_follows_user_ibfk_1">
+    <foreign-key id="399" parent="310" name="user_follows_user_ibfk_1">
       <ColNames>follower_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <foreign-key id="401" parent="310" name="user_follows_user_ibfk_2">
+    <foreign-key id="400" parent="310" name="user_follows_user_ibfk_2">
       <ColNames>followed_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <index id="402" parent="310" name="PRIMARY">
+    <index id="401" parent="310" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="403" parent="310" name="follower_id">
+    <index id="402" parent="310" name="follower_id">
       <ColNames>follower_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="404" parent="310" name="followed_id">
+    <index id="403" parent="310" name="followed_id">
       <ColNames>followed_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="405" parent="310" name="PRIMARY">
+    <key id="404" parent="310" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="406" parent="311" name="id">
-      <AutoIncrement>3</AutoIncrement>
+    <column id="405" parent="311" name="id">
+      <AutoIncrement>7</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="407" parent="311" name="role_name">
+    <column id="406" parent="311" name="role_name">
       <DasType>enum(&apos;BUSINESS_ACCOUNT&apos;, &apos;MODERATOR&apos;, &apos;PERSONAL_ACCOUNT&apos;)|0e</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="408" parent="311" name="user_id">
+    <column id="407" parent="311" name="user_id">
       <DasType>bigint|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="409" parent="311" name="PRIMARY">
+    <index id="408" parent="311" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="410" parent="311" name="PRIMARY">
+    <key id="409" parent="311" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

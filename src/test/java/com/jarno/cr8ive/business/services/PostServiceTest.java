@@ -6,6 +6,7 @@ import com.jarno.cr8ive.business.model.request.post.CreatePostRequestModel;
 import com.jarno.cr8ive.business.model.response.post.CreatePostResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetPostByPostIdResponseModel;
 import com.jarno.cr8ive.business.model.response.post.GetUserPostsResponseModel;
+import com.jarno.cr8ive.business.model.response.post.UpdateDescriptionResponseModel;
 import com.jarno.cr8ive.domain.Content;
 import com.jarno.cr8ive.domain.Post;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -183,48 +185,106 @@ class PostServiceTest {
         assertTrue(isUserOwner);
     }
 
+    @Test
+    void testGetTrendingPostsLastWeek() throws PostCustomException {
+        List<Post> mockedPosts = Arrays.asList(new Post());
 
-//    @Test
-//    void testGetLatestPost_FindLatestPostNull() throws PostCustomException {
-//        // ARRANGE
-//        Pageable pageable = Pageable.unpaged();
-//        when(gatewayMock.findLatestPost(pageable)).thenReturn(null);
-//
-//
-//        // ACT
-//        GetUserPostsResponseModel response = postService.getLatestPost(userId);
-//
-//        // ASSERT
-//        assertEquals(alreadySeenPosts.size(), response.getPost().size());
-//    }
+        when(gatewayMock.getTrendingPostsLastWeek(any(Date.class), any(Date.class), any(Pageable.class)))
+                .thenReturn(mockedPosts);
 
-//    @Test
-//    void testGetLatestPost_FindLatestPostException() {
-//        // ARRANGE
-//        long userId = 123;
-//        when(gatewayMock.findLatestPost(userId)).thenThrow(new RuntimeException("exception"));
-//
-//        // ACT & ASSERT
-//        PostCustomException exception = assertThrows(PostCustomException.class, () -> postService.getLatestPost(userId));
-//        assertEquals("Retrieval was unsuccessful", exception.getMessage());
-//    }
+        doNothing().when(likeService).getLikesForPosts(mockedPosts);
 
-//    @Test
-//    void testGetTrendingPostsLastWeek_RetrievalFailure() {
-//        // ARRANGE
-//        Calendar calendar = Calendar.getInstance();
-//        Date endDate = calendar.getTime(); // Current date
-//
-//        calendar.add(Calendar.DAY_OF_YEAR, -7); // Go back 7 days
-//        Date startDate = calendar.getTime();
-//
-//        when(gatewayMock.getTrendingPostsLastWeek(startDate, endDate)).thenThrow(new RuntimeException("Simulated retrieval exception"));
-//
-//        // ACT & ASSERT
-//        PostCustomException exception = assertThrows(PostCustomException.class, () -> postService.getTrendingPostsLastWeek());
-//        assertEquals("Retrieval trending posts was unsuccessful", exception.getMessage());
-//    }
-//
+        GetUserPostsResponseModel responseModel = postService.getTrendingPostsLastWeek(0);
+
+        // Assertions
+        assertNotNull(responseModel);
+        assertEquals(mockedPosts, responseModel.getPost());
+
+        verify(gatewayMock).getTrendingPostsLastWeek(any(Date.class), any(Date.class), any(Pageable.class));
+
+        verify(likeService).getLikesForPosts(mockedPosts);
+    }
+
+    @Test
+    void testUpdateDescription() throws PostCustomException {
+        long postId = 1L;
+        String newDescription = "New Description";
+
+        when(gatewayMock.updateDescription(postId, newDescription)).thenReturn(newDescription);
+
+        UpdateDescriptionResponseModel responseModel = postService.updateDescription(postId, newDescription);
+
+        assertNotNull(responseModel);
+        assertEquals(newDescription, responseModel.getDescription());
+
+        verify(gatewayMock).updateDescription(postId, newDescription);
+    }
+
+    @Test
+    public void testGetLatestPost() throws PostCustomException {
+        List<Post> mockedPosts = Arrays.asList(new Post());
+
+        when(gatewayMock.findLatestPost(any(Pageable.class))).thenReturn(mockedPosts);
+
+        doNothing().when(likeService).getLikesForPosts(mockedPosts);
+
+        GetUserPostsResponseModel responseModel = postService.getLatestPost(0);
+
+        assertNotNull(responseModel);
+        assertEquals(mockedPosts, responseModel.getPost());
+
+
+        verify(gatewayMock).findLatestPost(any(Pageable.class));
+
+        verify(likeService).getLikesForPosts(mockedPosts);
+    }
+
+    @Test
+    void testGetLatestPostWithException() {
+        when(gatewayMock.findLatestPost(any(Pageable.class))).thenThrow(new RuntimeException("Simulated error"));
+
+        PostCustomException exception = assertThrows(PostCustomException.class, () -> {
+            postService.getLatestPost(0);
+        });
+
+        // Assertions on the exception
+        assertEquals("Retrieval was unsuccessful", exception.getMessage());
+
+        verify(gatewayMock).findLatestPost(any(Pageable.class));
+
+        verifyNoInteractions(likeService);
+    }
+
+    @Test
+    void testGetTrendingPostsLastWeekWithException() {
+        when(gatewayMock.getTrendingPostsLastWeek(any(), any(), any(Pageable.class))).thenThrow(new RuntimeException("Simulated error"));
+
+        assertThrows(PostCustomException.class, () -> {
+            postService.getTrendingPostsLastWeek(0);
+        });
+
+        verify(gatewayMock).getTrendingPostsLastWeek(any(), any(), any((Pageable.class)));
+
+        verifyNoInteractions(likeService);
+    }
+
+    @Test
+    void testUpdateDescriptionWithException()  {
+        long postId = 1L;
+        String description = "New Description";
+
+        when(gatewayMock.updateDescription(postId, description)).thenThrow(new RuntimeException("Simulated error"));
+
+        PostCustomException exception = assertThrows(PostCustomException.class, () -> {
+            postService.updateDescription(postId, description);
+        });
+
+        assertEquals("Something went wrong during updating description.", exception.getMessage());
+
+        verify(gatewayMock).updateDescription(postId, description);
+    }
+
+
     @Test
     void testGetTrendingPostsLastWeek_Success() throws PostCustomException {
         // ARRANGE

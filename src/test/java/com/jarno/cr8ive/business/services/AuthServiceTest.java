@@ -17,10 +17,8 @@ import static org.mockito.Mockito.*;
 class AuthServiceTest {
     @Mock
     AccessTokenEncoderDecoderImpl tokenEncoderDecoder;
-
     @Mock
     AccessToken accessToken;
-
     @InjectMocks
     AuthService authService;
 
@@ -52,5 +50,15 @@ class AuthServiceTest {
         long userId = authService.extractUserIdFromToken(mockToken);
 
         assertEquals(mockUserId, userId);
+    }
+
+    @Test
+    void testExtractTokenFromAuthorizationHeader() {
+        // Arrange
+        String authorizationHeader = "Bearer yourAccessToken";
+        //Act
+        String result = authService.extractTokenFromAuthorizationHeader(authorizationHeader);
+        //Assert
+        assertEquals("yourAccessToken", result);
     }
 }

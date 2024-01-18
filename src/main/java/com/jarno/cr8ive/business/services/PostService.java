@@ -103,7 +103,7 @@ public class PostService implements IPostService {
     @Override
     public GetUserPostsResponseModel getLatestPost(int currentPage) throws PostCustomException{
         try {
-            Pageable pageable = PageRequest.of(currentPage, 5);
+            Pageable pageable = PageRequest.of(currentPage, 3);
 
             List<Post> posts = repo.findLatestPost(pageable);
             likeService.getLikesForPosts(posts);
@@ -123,7 +123,7 @@ public class PostService implements IPostService {
             calendar.add(Calendar.DAY_OF_YEAR, -7);
             Date startDate = calendar.getTime();
 
-            Pageable pageable = PageRequest.of(currentPage, 5);
+            Pageable pageable = PageRequest.of(currentPage, 3);
 
             List<Post> posts = repo.getTrendingPostsLastWeek(startDate, endDate, pageable);
             if (!posts.isEmpty()) {

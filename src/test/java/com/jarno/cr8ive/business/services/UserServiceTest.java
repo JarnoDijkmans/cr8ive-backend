@@ -44,7 +44,7 @@ class UserServiceTest {
         Mockito.when(factory.createBusinessAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
         Mockito.when(factory.createModeratorAccount(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), anySet(), anyString())).thenReturn(mockUser);
 
-        Mockito.doNothing().when(storageService).storeUserProfilePicture(any(IUser.class), any(MultipartFile.class));
+        Mockito.doNothing().when(storageService).storeUserProfilePicture(anyLong(), any(MultipartFile.class));
     }
 
     @Test

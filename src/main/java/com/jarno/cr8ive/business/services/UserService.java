@@ -53,7 +53,6 @@ public class UserService implements IUserService {
 
         IUser user = createUserAccount(requestModel, hashedPassword, userRoles, filename);
 
-        //Local store profilePicture
         storeUserInformation(user, requestModel.getProfilePicture());
 
         return new CreateUserResponseModel(user);
@@ -100,7 +99,7 @@ public class UserService implements IUserService {
 
     private void storeUserInformation(IUser user, MultipartFile profilePicture) {
         if (user != null) {
-            storageService.storeUserProfilePicture(user, profilePicture);
+            storageService.storeUserProfilePicture(user.getId(), profilePicture);
         }
     }
 
