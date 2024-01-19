@@ -15,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
@@ -320,5 +321,42 @@ class PostServiceTest {
         List <Post> posts = new ArrayList<>();
         posts.add(post1);
         return posts;
+    }
+
+    @Test
+    void testGetByHashtagPostSuccess() throws PostCustomException {
+        // Arrange
+        int currentPage = 1;
+        int hashtagId = 123;
+        Pageable pageable = PageRequest.of(currentPage, 3);
+        List<Post> mockPosts = Arrays.asList(new Post(), new Post());
+
+        // Mocking behavior
+        when(gatewayMock.findByHashtagId(pageable, hashtagId)).thenReturn(mockPosts);
+
+        // Act
+        GetUserPostsResponseModel response = postService.getByHashtagPost(currentPage, hashtagId);
+
+        // Assert
+        assertNotNull(response);
+        assertEquals(mockPosts, response.getPost());
+
+        // Verify interactions
+        verify(gatewayMock).findByHashtagId(pageable, hashtagId);
+        verify(likeService).getLikesForPosts(mockPosts);
+    }
+
+    @Test
+    void testGetByHashtagPostException() throws PostCustomException {
+        when(gatewayMock.findByHashtagId(any(), anyInt())).thenThrow(new RuntimeException("Simulating an exception"));
+
+
+        PostCustomException exception = assertThrows(PostCustomException.class, () -> {
+            postService.getByHashtagPost(anyInt(), anyInt());
+        });
+        // Act
+        assertEquals("Retrieval was unsuccessful", exception.getMessage());
+
+        // No need to assert anything for exception tests, as the test will fail if the exception is not thrown
     }
 }
