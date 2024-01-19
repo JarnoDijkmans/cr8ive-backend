@@ -18,6 +18,8 @@ public interface IPostService {
 
     boolean userOwnsPost (long postId, long userId);
     GetUserPostsResponseModel getLatestPost(int currentPage) throws PostCustomException;
+
+    GetUserPostsResponseModel getByHashtagPost(int currentPage, int hashtagId) throws PostCustomException;
     GetUserPostsResponseModel getTrendingPostsLastWeek(int currentPage) throws PostCustomException;
     UpdateDescriptionResponseModel updateDescription(long postId, String description) throws PostCustomException;
 }

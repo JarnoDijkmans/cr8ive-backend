@@ -85,6 +85,11 @@ public class PostController {
         }
     }
 
+    @GetMapping("/api/byCategory/{currentPage}/{categoryId}")
+    public GetUserPostsResponseModel getPostByCategory(@PathVariable("currentPage") int currentPage ,@PathVariable("categoryId") int categoryId ) throws PostCustomException {
+        return this.service.getByHashtagPost(currentPage, categoryId);
+    }
+
     @GetMapping("/api/latestPost/{currentPage}")
     public GetUserPostsResponseModel getPostLatestPostsForUser(@PathVariable("currentPage") int currentPage) throws PostCustomException {
         return this.service.getLatestPost(currentPage);

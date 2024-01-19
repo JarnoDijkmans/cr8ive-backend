@@ -115,6 +115,19 @@ public class PostService implements IPostService {
     }
 
     @Override
+    public GetUserPostsResponseModel getByHashtagPost(int currentPage, int hashtagId) throws PostCustomException{
+        try{
+            Pageable pageable = PageRequest.of(currentPage, 3);
+
+            List<Post> posts = repo.findByHashtagId(pageable, hashtagId);
+            likeService.getLikesForPosts(posts);
+            return new GetUserPostsResponseModel(posts);
+        }catch (Exception e){
+            throw new PostCustomException("Retrieval was unsuccessful");
+        }
+    }
+
+    @Override
     public GetUserPostsResponseModel getTrendingPostsLastWeek(int currentPage) throws PostCustomException{
         try{
             Calendar calendar = Calendar.getInstance();

@@ -30,12 +30,11 @@ class PostRepositoryImplTest {
 
     @Mock
     private PostConverter converter;
-    private IPostRepository postGateway;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        postGateway = new PostRepositoryImpl(postRepository, hashtagRepository, converter);
+        IPostRepository postGateway = new PostRepositoryImpl(postRepository, hashtagRepository, converter);
     }
 
     @Test

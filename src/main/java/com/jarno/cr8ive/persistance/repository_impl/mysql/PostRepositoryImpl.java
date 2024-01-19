@@ -99,7 +99,13 @@ public class PostRepositoryImpl implements IPostRepository {
             return null;
         }).orElseThrow(() -> new RuntimeException("Post not found with ID: " + postId));
     }
+
+    public List<Post> findByHashtagId(Pageable pageable, int hashtagId){
+        List<PostJpaMapper> postJpaMappers = repository.findPostsByHashtagId(hashtagId, pageable);
+        return converter.toPosts(postJpaMappers);
+    }
 }
+
 
 
 

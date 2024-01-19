@@ -23,4 +23,5 @@ public interface IPostRepository extends IPostExistsGateway {
 
     String updateDescription(long postId, String description);
 
+    List<Post> findByHashtagId(Pageable pageable, int categoryId);
 }

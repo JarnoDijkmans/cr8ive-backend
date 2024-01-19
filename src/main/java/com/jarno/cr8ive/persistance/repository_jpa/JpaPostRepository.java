@@ -31,6 +31,12 @@ public interface JpaPostRepository extends JpaRepository<PostJpaMapper, Long> {
             "AND p.creationDate <= :endDate " +
             "ORDER BY SIZE(p.likes) DESC")
     List<PostJpaMapper> findPostsInDateRange(Date startDate, Date endDate, Pageable pageable);
+
+    @Query("SELECT p FROM PostJpaMapper p " +
+            "JOIN p.hashtags h " +
+            "WHERE h.id = :hashtagId " +
+            "ORDER BY p.creationDate DESC")
+    List<PostJpaMapper> findPostsByHashtagId(@Param("hashtagId") int hashtagId, Pageable pageable);
 }
 
 
